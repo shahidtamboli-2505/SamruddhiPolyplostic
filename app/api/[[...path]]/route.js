@@ -31,7 +31,8 @@ export async function OPTIONS() {
 }
 
 export async function GET(request, { params }) {
-  const path = (params?.path || []).join('/');
+  const resolved = await params;
+  const path = (resolved?.path || []).join('/');
   try {
     if (path === '' || path === 'health') {
       return json({ status: 'ok', service: 'samruddhi-polyplast', time: new Date().toISOString() });
@@ -48,7 +49,8 @@ export async function GET(request, { params }) {
 }
 
 export async function POST(request, { params }) {
-  const path = (params?.path || []).join('/');
+  const resolved = await params;
+  const path = (resolved?.path || []).join('/');
   try {
     const body = await request.json().catch(() => ({}));
     if (path === 'inquiries') {
