@@ -10,10 +10,15 @@ export const metadata = {
     'plastic packaging India', 'gerbera sleeves', 'orchid sleeves', 'PP sheets',
     'industrial packaging', 'Samruddhi Polyplast', 'polypropylene manufacturer',
   ],
+  icons: {
+    icon: '/images/logo/samruddhi-logo.png',
+    apple: '/images/logo/samruddhi-logo.png',
+  },
   openGraph: {
     title: 'Samruddhi Polyplast | Premium PP & LLDPE Packaging',
     description: 'Premium PP & LLDPE plastic packaging solutions manufactured for industries worldwide.',
     type: 'website',
+    images: ['/images/logo/samruddhi-logo.png'],
   },
 };
 

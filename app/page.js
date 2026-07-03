@@ -20,7 +20,7 @@ import { toast } from 'sonner';
    ========================================================= */
 const HERO_SLIDES = [
   {
-    img: 'https://images.pexels.com/photos/6034676/pexels-photo-6034676.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1200&w=1920',
+    img: '/images/factory/factory-exterior.jpg',
     eyebrow: 'Established 27 August 2024',
     title: 'Premium Plastic Packaging',
     highlight: 'Manufactured for the World',
@@ -143,7 +143,7 @@ const STATS = [
 ];
 
 const GALLERY = [
-  'https://images.pexels.com/photos/6034676/pexels-photo-6034676.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  '/images/factory/factory-exterior.jpg',
   'https://images.pexels.com/photos/10290624/pexels-photo-10290624.jpeg?auto=compress&cs=tinysrgb&w=1200',
   'https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=1200&q=80',
   'https://images.pexels.com/photos/35645885/pexels-photo-35645885.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -239,8 +239,8 @@ function Navbar() {
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_-12px_rgba(0,0,0,0.15)]' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-5 lg:px-8 flex items-center justify-between h-20">
         <a href="#home" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-xl bg-gradient-brand flex items-center justify-center premium-shadow group-hover:rotate-6 transition-transform duration-500">
-            <Layers className="w-6 h-6 text-white" strokeWidth={2.5} />
+          <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center premium-shadow group-hover:scale-105 transition-transform duration-500 ring-1 ring-slate-200/60">
+            <img src="/images/logo/samruddhi-logo.png" alt="Samruddhi Polyplast" className="w-full h-full object-contain" />
           </div>
           <div className="leading-tight">
             <div className={`font-display font-extrabold text-lg tracking-tight ${scrolled ? 'text-[#0A1929]' : 'text-white'}`}>
@@ -410,7 +410,7 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={fadeUp} className="relative">
             <div className="relative rounded-3xl overflow-hidden premium-shadow">
-              <img src="https://images.pexels.com/photos/6034676/pexels-photo-6034676.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Factory" className="w-full h-[520px] object-cover" />
+              <img src="/images/factory/factory-exterior.jpg" alt="Samruddhi Polyplast Factory" className="w-full h-[520px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1929]/60 to-transparent"></div>
             </div>
             <div className="absolute -bottom-8 -left-6 lg:-left-10 bg-white rounded-2xl p-6 premium-shadow max-w-[240px] animated-border">
@@ -956,7 +956,9 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-xl bg-gradient-brand grid place-items-center"><Layers className="w-6 h-6 text-white" /></div>
+              <div className="w-12 h-12 rounded-xl bg-white p-1 grid place-items-center ring-1 ring-white/20">
+                <img src="/images/logo/samruddhi-logo.png" alt="Samruddhi Polyplast" className="w-full h-full object-contain" />
+              </div>
               <div>
                 <div className="font-display font-extrabold text-lg">Samruddhi <span className="text-[#00A86B]">Polyplast</span></div>
                 <div className="text-[10px] uppercase tracking-widest text-white/50">PP · LLDPE Specialists</div>
