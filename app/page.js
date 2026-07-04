@@ -63,17 +63,17 @@ const WHY = [
 const CATEGORIES = [
   { title: 'PP Products', tag: 'Polypropylene', img: '/images/products/pp-packing-bags.png', count: '7 Products' },
   { title: 'LD Products', tag: 'LLDPE', img: '/images/products/ld-packing-bags.png', count: '3 Products' },
-  { title: 'Flower Packaging', tag: 'Export Grade', img: 'https://images.unsplash.com/photo-1615670289616-0ab01183ee64?auto=format&fit=crop&w=1200&q=80', count: '4 Products' },
+  { title: 'Flower Packaging', tag: 'Export Grade', img: '/images/flower/pp-gypso-orchid-sleeves.png', count: '4 Products' },
   { title: 'Industrial Packaging', tag: 'Heavy Duty', img: 'https://images.pexels.com/photos/18541868/pexels-photo-18541868.jpeg?auto=compress&cs=tinysrgb&w=1200', count: 'Bulk & Custom' },
 ];
 
 const PRODUCTS = [
   { name: 'PP Packing Bags', desc: 'High-strength 100% virgin PP bags — 51 microns — printed with your brand, ideal for industrial and retail packaging.', size: '3" – 22" · 51 Micron', apps: 'Industrial, Food, Chemical, Retail', img: '/images/products/pp-packing-bags.png' },
   { name: 'PP Treatment Rolls', desc: 'Smooth, uniform-thickness PP treatment rolls — 51 micron, 100% food grade, 100% recyclable — engineered for automatic packing lines.', size: '3" – 22" · 51 Micron', apps: 'Auto Packing, Food, Wrapping', img: '/images/products/pp-treatment-roll.png' },
-  { name: 'PP Sheets', desc: 'Transparent, flexible PP sheets for protective covering and industrial packaging.', size: '3" – 22"', apps: 'Protective Covering, Industrial', img: 'https://images.pexels.com/photos/18541868/pexels-photo-18541868.jpeg?auto=compress&cs=tinysrgb&w=800' },
   { name: 'LD Packing Bags', desc: 'Flexible 100% virgin LLDPE bags with strong heat seals, excellent transparency and moisture resistance — bulk-packed in bundles.', size: '4" – 20"', apps: 'Chemical, Food, General', img: '/images/products/ld-packing-bags.png' },
-  { name: 'PP Gerbera Cover', desc: 'Crystal-clear PP sleeves protecting Gerbera flowers during export.', size: '4 × 3', apps: 'Flower Export, Retail Bouquets', img: 'https://images.unsplash.com/photo-1615670289616-0ab01183ee64?auto=format&fit=crop&w=800&q=80' },
-  { name: 'PP Orchid Sleeves', desc: 'Elegant, scratch-resistant sleeves designed for premium orchid protection.', size: '20 × 25', apps: 'Flower Export, Florists', img: 'https://images.pexels.com/photos/6912875/pexels-photo-6912875.jpeg?auto=compress&cs=tinysrgb&w=800' },
+  { name: 'PP Gerbera Cover', desc: 'Crystal-clear PP sleeves precision-cut for Gerbera flowers — bundled and ready for export cold-chain use.', size: '4 × 3', apps: 'Flower Export, Retail Bouquets', img: '/images/flower/pp-gerbera-cover.png' },
+  { name: 'PP Gypsophila / Orchid Sleeves', desc: 'Long crystal-clear PP flower sleeves with breather perforations — protect bloom quality during transportation and storage.', size: '20 × 25', apps: 'Gypsophila, Orchid Export', img: '/images/flower/pp-gypso-orchid-sleeves.png' },
+  { name: 'PP Chrysanthemum (Shevanti) Sleeves', desc: 'Ventilated PP sleeves engineered specifically for Chrysanthemum / Shevanti with premium clarity and long-lasting protection.', size: '18 × 25', apps: 'Chrysanthemum, Shevanti Export', img: '/images/flower/pp-chrysanthemum-sleeves.png' },
 ];
 
 const MACHINES = [
@@ -144,14 +144,14 @@ const STATS = [
 
 const GALLERY = [
   '/images/factory/factory-exterior.jpg',
+  '/images/products/pp-packing-bags.png',
+  '/images/products/pp-treatment-roll.png',
+  '/images/products/ld-packing-bags.png',
+  '/images/flower/pp-gerbera-cover.png',
+  '/images/flower/pp-gypso-orchid-sleeves.png',
+  '/images/flower/pp-chrysanthemum-sleeves.png',
   'https://images.pexels.com/photos/10290624/pexels-photo-10290624.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=1200&q=80',
   'https://images.pexels.com/photos/35645885/pexels-photo-35645885.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/29988964/pexels-photo-29988964.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/9305407/pexels-photo-9305407.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/18568174/pexels-photo-18568174.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/18541868/pexels-photo-18541868.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.unsplash.com/photo-1615670289616-0ab01183ee64?auto=format&fit=crop&w=1200&q=80',
 ];
 
 const TESTIMONIALS = [
@@ -642,10 +642,10 @@ function FlowerSection() {
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} className="relative">
             <div className="grid grid-cols-2 gap-4">
-              <img src="https://images.pexels.com/photos/6912875/pexels-photo-6912875.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" className="rounded-2xl h-72 w-full object-cover premium-shadow mt-8" />
-              <img src="https://images.unsplash.com/photo-1615670289616-0ab01183ee64?auto=format&fit=crop&w=800&q=80" alt="" className="rounded-2xl h-72 w-full object-cover premium-shadow" />
-              <img src="https://images.unsplash.com/photo-1603847734787-9e8a3f3e9d60?auto=format&fit=crop&w=800&q=80" alt="" className="rounded-2xl h-72 w-full object-cover premium-shadow" />
-              <img src="https://images.pexels.com/photos/18541868/pexels-photo-18541868.jpeg?auto=compress&cs=tinysrgb&w=800" alt="" className="rounded-2xl h-72 w-full object-cover premium-shadow mt-[-40px]" />
+              <img src="/images/flower/pp-gerbera-cover.png" alt="PP Gerbera Cover" className="rounded-2xl h-72 w-full object-cover premium-shadow mt-8" />
+              <img src="/images/flower/pp-gypso-orchid-sleeves.png" alt="PP Gypsophila / Orchid Sleeves" className="rounded-2xl h-72 w-full object-cover premium-shadow" />
+              <img src="/images/flower/pp-chrysanthemum-sleeves.png" alt="PP Chrysanthemum Sleeves" className="rounded-2xl h-72 w-full object-cover premium-shadow" />
+              <img src="/images/products/pp-treatment-roll.png" alt="PP Treatment Roll" className="rounded-2xl h-72 w-full object-cover premium-shadow mt-[-40px]" />
             </div>
             <div className="absolute -bottom-4 left-6 bg-[#0A1929] text-white rounded-2xl px-6 py-4 premium-shadow">
               <div className="font-display font-bold text-2xl">Export Grade</div>
