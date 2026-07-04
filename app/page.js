@@ -27,7 +27,7 @@ const HERO_SLIDES = [
     desc: 'Precision manufactured PP & LLDPE packaging products powered by modern machinery, virgin raw materials and complete customization for industrial and export requirements.',
   },
   {
-    img: '/images/factory/factory-interior-1.jpg',
+    img: '/images/machines/pp-extruder-55mm-hd.png',
     eyebrow: 'PP & LLDPE Specialists',
     title: 'Industrial Grade Films',
     highlight: 'Crafted with Precision',
@@ -95,7 +95,7 @@ const MACHINES = [
   },
   {
     name: 'P.P Packaging Extruder — 55 MM',
-    img: '/images/machines/pp-extruder-55mm.jpg',
+    img: '/images/machines/pp-extruder-55mm-hd.png',
     raw: 'Polypropylene Virgin Film-Grade Granules',
     products: 'High-volume PP films & rolls',
     size: '3" to 22"',
@@ -148,7 +148,7 @@ const GALLERY = [
   '/images/factory/factory-interior-2.jpg',
   '/images/machines/ld-tubing-machine.jpg',
   '/images/machines/pp-extruder-45mm.jpg',
-  '/images/machines/pp-extruder-55mm.jpg',
+  '/images/machines/pp-extruder-55mm-hd.png',
   '/images/products/pp-packing-bags.png',
   '/images/products/pp-treatment-roll.png',
   '/images/products/ld-packing-bags.png',
