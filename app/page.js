@@ -69,7 +69,7 @@ const CATEGORIES = [
 
 const PRODUCTS = [
   { name: 'PP Packing Bags', desc: 'High-strength 100% virgin PP bags — 51 microns — printed with your brand, ideal for industrial and retail packaging.', size: '3" – 22" · 51 Micron', apps: 'Industrial, Food, Chemical, Retail', img: '/images/products/pp-packing-bags.png' },
-  { name: 'PP Treatment Rolls', desc: 'Smooth, uniform-thickness rolls engineered for automatic packaging lines.', size: '3" – 22"', apps: 'Auto Packing, Machines, Wrapping', img: 'https://images.pexels.com/photos/18541871/pexels-photo-18541871.jpeg?auto=compress&cs=tinysrgb&w=800' },
+  { name: 'PP Treatment Rolls', desc: 'Smooth, uniform-thickness PP treatment rolls — 51 micron, 100% food grade, 100% recyclable — engineered for automatic packing lines.', size: '3" – 22" · 51 Micron', apps: 'Auto Packing, Food, Wrapping', img: '/images/products/pp-treatment-roll.png' },
   { name: 'PP Sheets', desc: 'Transparent, flexible PP sheets for protective covering and industrial packaging.', size: '3" – 22"', apps: 'Protective Covering, Industrial', img: 'https://images.pexels.com/photos/18541868/pexels-photo-18541868.jpeg?auto=compress&cs=tinysrgb&w=800' },
   { name: 'LD Packing Bags', desc: 'Flexible 100% virgin LLDPE bags with strong heat seals, excellent transparency and moisture resistance — bulk-packed in bundles.', size: '4" – 20"', apps: 'Chemical, Food, General', img: '/images/products/ld-packing-bags.png' },
   { name: 'PP Gerbera Cover', desc: 'Crystal-clear PP sleeves protecting Gerbera flowers during export.', size: '4 × 3', apps: 'Flower Export, Retail Bouquets', img: 'https://images.unsplash.com/photo-1615670289616-0ab01183ee64?auto=format&fit=crop&w=800&q=80' },
@@ -351,7 +351,7 @@ function Hero() {
         <div className="hidden lg:flex absolute right-8 bottom-10 gap-6 glass-dark rounded-2xl px-8 py-5 text-white">
           <div><div className="text-3xl font-display font-bold">2T</div><div className="text-xs uppercase tracking-widest text-white/60">Daily Capacity</div></div>
           <div className="w-px bg-white/20"></div>
-          <div><div className="text-3xl font-display font-bold">10+</div><div className="text-xs uppercase tracking-widest text-white/60">Products</div></div>
+          <div><div className="text-3xl font-display font-bold">51μ</div><div className="text-xs uppercase tracking-widest text-white/60">Food Grade Film</div></div>
           <div className="w-px bg-white/20"></div>
           <div><div className="text-3xl font-display font-bold">100%</div><div className="text-xs uppercase tracking-widest text-white/60">Virgin Material</div></div>
         </div>
@@ -894,8 +894,8 @@ function Contact() {
               <div className="space-y-6 mb-10">
                 {[
                   { icon: Mail, label: 'Email', value: <a href="mailto:sales@samruddhipolyplast.com" className="font-medium hover:text-[#7FFFB8]">sales@samruddhipolyplast.com</a> },
-                  { icon: Phone, label: 'Phone', value: <span className="font-medium">+91 · Available on request</span> },
-                  { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">Maharashtra, India</span> },
+                  { icon: Phone, label: 'Phone / Customer Care', value: <a href="tel:+919421752747" className="font-medium hover:text-[#7FFFB8]">+91 94217 52747</a> },
+                  { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">A/Po Yelur, G.No. 1439,<br/>Tal. Walva, Dist. Sangli,<br/>Maharashtra – 415 409, India</span> },
                   { icon: Clock, label: 'Working Hours', value: <span className="font-medium">Mon – Sat · 9:00 AM – 6:00 PM</span> },
                 ].map((it, k) => (
                   <div key={k} className="flex gap-4">
@@ -998,7 +998,8 @@ function Footer() {
             <h5 className="font-display font-bold mb-5 text-sm uppercase tracking-widest">Contact</h5>
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex gap-2.5"><Mail className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="mailto:sales@samruddhipolyplast.com" className="hover:text-white">sales@samruddhipolyplast.com</a></li>
-              <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />Maharashtra, India</li>
+              <li className="flex gap-2.5"><Phone className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="tel:+919421752747" className="hover:text-white">+91 94217 52747</a></li>
+              <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />A/Po Yelur, Tal. Walva, Dist. Sangli, Maharashtra – 415 409</li>
               <li className="flex gap-2.5"><Clock className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />Mon – Sat · 9 AM – 6 PM</li>
             </ul>
           </div>
