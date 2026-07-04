@@ -27,18 +27,18 @@ const HERO_SLIDES = [
     desc: 'Precision manufactured PP & LLDPE packaging products powered by modern machinery, virgin raw materials and complete customization for industrial and export requirements.',
   },
   {
-    img: '/images/machines/pp-extruder-55mm-hd.png',
+    img: '/images/factory/factory-interior-1-hd.png',
     eyebrow: 'PP & LLDPE Specialists',
     title: 'Industrial Grade Films',
     highlight: 'Crafted with Precision',
     desc: 'From 3-inch to 22-inch films, treatment rolls, sheets and custom flower sleeves — engineered on modern extrusion lines for uniform quality and export standards.',
   },
   {
-    img: '/images/factory/factory-interior-2.jpg',
+    img: '/images/factory/factory-interior-2-hd.png',
     eyebrow: 'Trusted by Exporters',
-    title: 'Flower Packaging',
-    highlight: 'Export Quality Sleeves',
-    desc: 'Crystal-clear PP sleeves for Gerbera, Gypsophila, Orchid and Chrysanthemum — protecting freshness from farm to global market.',
+    title: 'Modern Production Floor',
+    highlight: 'Skilled Craftsmanship',
+    desc: 'Our operators, extrusion lines and cutting stations work in disciplined harmony — producing consistent, export-quality PP and LLDPE packaging every day.',
   },
 ];
 
@@ -79,7 +79,7 @@ const PRODUCTS = [
 const MACHINES = [
   {
     name: 'L.D Tubing Machine',
-    img: '/images/machines/ld-tubing-machine.jpg',
+    img: '/images/machines/ld-tubing-machine-hd.png',
     raw: 'LLDPE Virgin Film-Grade Granules',
     products: 'LD Packing Bags, Treatment Rolls, Liners',
     size: '4" to 20"',
@@ -87,7 +87,7 @@ const MACHINES = [
   },
   {
     name: 'P.P Packaging Extruder — 45 MM',
-    img: '/images/machines/pp-extruder-45mm.jpg',
+    img: '/images/machines/pp-extruder-45mm-hd.png',
     raw: 'Polypropylene Virgin Film-Grade Granules',
     products: 'PP Packing Bags, Treatment Rolls, Sheets',
     size: '3" to 22"',
@@ -103,7 +103,7 @@ const MACHINES = [
   },
   {
     name: '28" Double Decker Cutting Machine',
-    img: 'https://images.pexels.com/photos/9305407/pexels-photo-9305407.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    img: '/images/machines/cutting-machine-28-double-decker.png',
     raw: 'Extruded PP / LDPE Films',
     products: 'Bags, Sleeves, Sheets — precision cut',
     size: 'Up to 28" width',
@@ -144,11 +144,12 @@ const STATS = [
 
 const GALLERY = [
   '/images/factory/factory-exterior.jpg',
-  '/images/factory/factory-interior-1.jpg',
-  '/images/factory/factory-interior-2.jpg',
-  '/images/machines/ld-tubing-machine.jpg',
-  '/images/machines/pp-extruder-45mm.jpg',
+  '/images/factory/factory-interior-1-hd.png',
+  '/images/factory/factory-interior-2-hd.png',
+  '/images/machines/ld-tubing-machine-hd.png',
+  '/images/machines/pp-extruder-45mm-hd.png',
   '/images/machines/pp-extruder-55mm-hd.png',
+  '/images/machines/cutting-machine-28-double-decker.png',
   '/images/products/pp-packing-bags.png',
   '/images/products/pp-treatment-roll.png',
   '/images/products/ld-packing-bags.png',
