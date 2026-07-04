@@ -27,14 +27,14 @@ const HERO_SLIDES = [
     desc: 'Precision manufactured PP & LLDPE packaging products powered by modern machinery, virgin raw materials and complete customization for industrial and export requirements.',
   },
   {
-    img: 'https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=1920&q=80',
+    img: '/images/factory/factory-interior-1.jpg',
     eyebrow: 'PP & LLDPE Specialists',
     title: 'Industrial Grade Films',
     highlight: 'Crafted with Precision',
     desc: 'From 3-inch to 22-inch films, treatment rolls, sheets and custom flower sleeves — engineered on modern extrusion lines for uniform quality and export standards.',
   },
   {
-    img: 'https://images.pexels.com/photos/10031804/pexels-photo-10031804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1200&w=1920',
+    img: '/images/factory/factory-interior-2.jpg',
     eyebrow: 'Trusted by Exporters',
     title: 'Flower Packaging',
     highlight: 'Export Quality Sleeves',
@@ -79,7 +79,7 @@ const PRODUCTS = [
 const MACHINES = [
   {
     name: 'L.D Tubing Machine',
-    img: 'https://images.pexels.com/photos/10290624/pexels-photo-10290624.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    img: '/images/machines/ld-tubing-machine.jpg',
     raw: 'LLDPE Virgin Film-Grade Granules',
     products: 'LD Packing Bags, Treatment Rolls, Liners',
     size: '4" to 20"',
@@ -87,7 +87,7 @@ const MACHINES = [
   },
   {
     name: 'P.P Packaging Extruder — 45 MM',
-    img: 'https://images.pexels.com/photos/35645885/pexels-photo-35645885.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    img: '/images/machines/pp-extruder-45mm.jpg',
     raw: 'Polypropylene Virgin Film-Grade Granules',
     products: 'PP Packing Bags, Treatment Rolls, Sheets',
     size: '3" to 22"',
@@ -95,7 +95,7 @@ const MACHINES = [
   },
   {
     name: 'P.P Packaging Extruder — 55 MM',
-    img: 'https://images.pexels.com/photos/29988964/pexels-photo-29988964.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    img: '/images/machines/pp-extruder-55mm.jpg',
     raw: 'Polypropylene Virgin Film-Grade Granules',
     products: 'High-volume PP films & rolls',
     size: '3" to 22"',
@@ -144,14 +144,17 @@ const STATS = [
 
 const GALLERY = [
   '/images/factory/factory-exterior.jpg',
+  '/images/factory/factory-interior-1.jpg',
+  '/images/factory/factory-interior-2.jpg',
+  '/images/machines/ld-tubing-machine.jpg',
+  '/images/machines/pp-extruder-45mm.jpg',
+  '/images/machines/pp-extruder-55mm.jpg',
   '/images/products/pp-packing-bags.png',
   '/images/products/pp-treatment-roll.png',
   '/images/products/ld-packing-bags.png',
   '/images/flower/pp-gerbera-cover.png',
   '/images/flower/pp-gypso-orchid-sleeves.png',
   '/images/flower/pp-chrysanthemum-sleeves.png',
-  'https://images.pexels.com/photos/10290624/pexels-photo-10290624.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  'https://images.pexels.com/photos/35645885/pexels-photo-35645885.jpeg?auto=compress&cs=tinysrgb&w=1200',
 ];
 
 const TESTIMONIALS = [
