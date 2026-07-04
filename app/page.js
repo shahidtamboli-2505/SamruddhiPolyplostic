@@ -61,14 +61,14 @@ const WHY = [
 ];
 
 const CATEGORIES = [
-  { title: 'PP Products', tag: 'Polypropylene', img: 'https://images.unsplash.com/photo-1597348989645-46b190ce4918?auto=format&fit=crop&w=1200&q=80', count: '7 Products' },
+  { title: 'PP Products', tag: 'Polypropylene', img: '/images/products/pp-packing-bags.png', count: '7 Products' },
   { title: 'LD Products', tag: 'LLDPE', img: 'https://images.pexels.com/photos/29155320/pexels-photo-29155320.jpeg?auto=compress&cs=tinysrgb&w=1200', count: '3 Products' },
   { title: 'Flower Packaging', tag: 'Export Grade', img: 'https://images.unsplash.com/photo-1615670289616-0ab01183ee64?auto=format&fit=crop&w=1200&q=80', count: '4 Products' },
   { title: 'Industrial Packaging', tag: 'Heavy Duty', img: 'https://images.pexels.com/photos/18541868/pexels-photo-18541868.jpeg?auto=compress&cs=tinysrgb&w=1200', count: 'Bulk & Custom' },
 ];
 
 const PRODUCTS = [
-  { name: 'PP Packing Bags', desc: 'High-strength virgin PP bags with excellent finish for industrial packaging.', size: '3" – 22"', apps: 'Industrial, Food, Chemical, Retail', img: 'https://images.unsplash.com/photo-1597348989645-46b190ce4918?auto=format&fit=crop&w=800&q=80' },
+  { name: 'PP Packing Bags', desc: 'High-strength 100% virgin PP bags — 51 microns — printed with your brand, ideal for industrial and retail packaging.', size: '3" – 22" · 51 Micron', apps: 'Industrial, Food, Chemical, Retail', img: '/images/products/pp-packing-bags.png' },
   { name: 'PP Treatment Rolls', desc: 'Smooth, uniform-thickness rolls engineered for automatic packaging lines.', size: '3" – 22"', apps: 'Auto Packing, Machines, Wrapping', img: 'https://images.pexels.com/photos/18541871/pexels-photo-18541871.jpeg?auto=compress&cs=tinysrgb&w=800' },
   { name: 'PP Sheets', desc: 'Transparent, flexible PP sheets for protective covering and industrial packaging.', size: '3" – 22"', apps: 'Protective Covering, Industrial', img: 'https://images.pexels.com/photos/18541868/pexels-photo-18541868.jpeg?auto=compress&cs=tinysrgb&w=800' },
   { name: 'LD Packing Bags', desc: 'Flexible LLDPE bags with strong seals and moisture resistance.', size: '4" – 20"', apps: 'Chemical, Food, General', img: 'https://images.pexels.com/photos/29155320/pexels-photo-29155320.jpeg?auto=compress&cs=tinysrgb&w=800' },
