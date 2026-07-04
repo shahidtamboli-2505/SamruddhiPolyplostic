@@ -152,4 +152,18 @@ function useToast() {
   };
 }
 
+toast.success = (description) =>
+  toast({
+    title: 'Success',
+    description,
+    variant: 'success',
+  });
+
+toast.error = (description) =>
+  toast({
+    title: 'Error',
+    description,
+    variant: 'destructive',
+  });
+
 export { useToast, toast }

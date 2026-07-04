@@ -9,11 +9,14 @@ import {
   ShoppingBag, Shirt, Plane, Pill, Car, PackageCheck, Ruler, BadgeCheck,
   Layers, Zap, Award, Clock, Users, Boxes, Mail, Phone, MapPin,
   Facebook, Instagram, Linkedin, ChevronUp, CheckCircle2, Plus, Minus,
+  Download, FileDown, ExternalLink, FileText
 } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
+import { toast } from '@/hooks/use-toast';
+import { PRODUCTS } from '@/lib/products';
 
 /* =========================================================
    DATA
@@ -60,21 +63,16 @@ const WHY = [
   { icon: Sparkles, title: 'Customer Satisfaction', desc: 'Long-term partnerships built on trust and consistency.' },
 ];
 
+const YOUTUBE_VIDEO_ID = 'JZEBKgggR-c';
+
 const CATEGORIES = [
   { title: 'PP Products', tag: 'Polypropylene', img: '/images/products/pp-packing-bags.png', count: '7 Products' },
   { title: 'LD Products', tag: 'LLDPE', img: '/images/products/ld-packing-bags.png', count: '3 Products' },
   { title: 'Flower Packaging', tag: 'Export Grade', img: '/images/flower/pp-gypso-orchid-sleeves.png', count: '4 Products' },
-  { title: 'Industrial Packaging', tag: 'Heavy Duty', img: 'https://images.pexels.com/photos/18541868/pexels-photo-18541868.jpeg?auto=compress&cs=tinysrgb&w=1200', count: 'Bulk & Custom' },
+  { title: 'Industrial Packaging', tag: 'Heavy Duty', img: '/images/factory/factory-exterior.jpg', count: 'Bulk & Custom' },
 ];
 
-const PRODUCTS = [
-  { name: 'PP Packing Bags', desc: 'High-strength 100% virgin PP bags — 51 microns — printed with your brand, ideal for industrial and retail packaging.', size: '3" – 22" · 51 Micron', apps: 'Industrial, Food, Chemical, Retail', img: '/images/products/pp-packing-bags.png' },
-  { name: 'PP Treatment Rolls', desc: 'Smooth, uniform-thickness PP treatment rolls — 51 micron, 100% food grade, 100% recyclable — engineered for automatic packing lines.', size: '3" – 22" · 51 Micron', apps: 'Auto Packing, Food, Wrapping', img: '/images/products/pp-treatment-roll.png' },
-  { name: 'LD Packing Bags', desc: 'Flexible 100% virgin LLDPE bags with strong heat seals, excellent transparency and moisture resistance — bulk-packed in bundles.', size: '4" – 20"', apps: 'Chemical, Food, General', img: '/images/products/ld-packing-bags.png' },
-  { name: 'PP Gerbera Cover', desc: 'Crystal-clear PP sleeves precision-cut for Gerbera flowers — bundled and ready for export cold-chain use.', size: '4 × 3', apps: 'Flower Export, Retail Bouquets', img: '/images/flower/pp-gerbera-cover.png' },
-  { name: 'PP Gypsophila / Orchid Sleeves', desc: 'Long crystal-clear PP flower sleeves with breather perforations — protect bloom quality during transportation and storage.', size: '20 × 25', apps: 'Gypsophila, Orchid Export', img: '/images/flower/pp-gypso-orchid-sleeves.png' },
-  { name: 'PP Chrysanthemum (Shevanti) Sleeves', desc: 'Ventilated PP sleeves engineered specifically for Chrysanthemum / Shevanti with premium clarity and long-lasting protection.', size: '18 × 25', apps: 'Chrysanthemum, Shevanti Export', img: '/images/flower/pp-chrysanthemum-sleeves.png' },
-];
+
 
 const MACHINES = [
   {
@@ -183,6 +181,7 @@ const NAV_LINKS = [
   { label: 'Machinery', href: '#machinery' },
   { label: 'Industries', href: '#industries' },
   { label: 'Gallery', href: '#gallery' },
+  { label: 'Catalog', href: '/catalog' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -246,20 +245,23 @@ function Navbar() {
           <div className="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center premium-shadow group-hover:scale-105 transition-transform duration-500 ring-1 ring-slate-200/60">
             <img src="/images/logo/samruddhi-logo.png" alt="Samruddhi Polyplast" className="w-full h-full object-contain" />
           </div>
-          <div className="leading-tight">
-            <div className={`font-display font-extrabold text-lg tracking-tight ${scrolled ? 'text-[#0A1929]' : 'text-white'}`}>
-              Samruddhi<span className="text-[#00A86B]"> Polyplast</span>
+          <div className="leading-tight hidden xs:block sm:block">
+            <div className={`font-display font-extrabold text-lg sm:text-xl tracking-tight ${scrolled ? 'text-[#0A1929]' : 'text-white'}`}>
+              Samruddhi&nbsp;<span className="text-[#00A86B]">Polyplast</span>
             </div>
-            <div className={`text-[10px] font-medium tracking-[0.25em] uppercase ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>PP · LLDPE · Flower Packaging</div>
+            <div className={`text-[8px] sm:text-[9px] font-bold tracking-[0.15em] uppercase mt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>PP · LLDPE · Flower Packaging</div>
           </div>
         </a>
         <nav className="hidden lg:flex items-center gap-1">
-          {NAV_LINKS.map(l => (
-            <a key={l.href} href={l.href}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${scrolled ? 'text-slate-700 hover:text-[#005BAC] hover:bg-[#005BAC]/5' : 'text-white/85 hover:text-white hover:bg-white/10'}`}>
-              {l.label}
-            </a>
-          ))}
+          {NAV_LINKS.map(l => {
+            const isPage = l.href.startsWith('/');
+            const cls = `px-4 py-2 text-sm font-medium rounded-full transition-all ${scrolled ? 'text-slate-700 hover:text-[#005BAC] hover:bg-[#005BAC]/5' : 'text-white/85 hover:text-white hover:bg-white/10'}`;
+            return isPage ? (
+              <Link key={l.href} href={l.href} className={cls}>{l.label === 'Catalog' ? <><Download className="w-3.5 h-3.5 inline mr-1" />{l.label}</> : l.label}</Link>
+            ) : (
+              <a key={l.href} href={l.href} className={cls}>{l.label}</a>
+            );
+          })}
         </nav>
         <div className="hidden lg:flex items-center gap-3">
           <button className={`w-10 h-10 rounded-full grid place-items-center transition-all ${scrolled ? 'hover:bg-slate-100 text-slate-700' : 'hover:bg-white/10 text-white'}`}>
@@ -280,9 +282,14 @@ function Navbar() {
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white border-t border-slate-200 overflow-hidden">
             <div className="px-5 py-4 flex flex-col gap-1">
-              {NAV_LINKS.map(l => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-3 px-3 rounded-lg text-slate-700 hover:bg-slate-100 font-medium">{l.label}</a>
-              ))}
+              {NAV_LINKS.map(l => {
+                const isPage = l.href.startsWith('/');
+                return isPage ? (
+                  <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-3 px-3 rounded-lg text-slate-700 hover:bg-slate-100 font-medium flex items-center gap-2"><Download className="w-4 h-4" />{l.label}</Link>
+                ) : (
+                  <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-3 px-3 rounded-lg text-slate-700 hover:bg-slate-100 font-medium">{l.label}</a>
+                );
+              })}
               <a href="#contact" onClick={() => setOpen(false)}>
                 <Button className="w-full mt-2 rounded-full bg-gradient-brand text-white h-11">Get a Quote</Button>
               </a>
@@ -339,6 +346,11 @@ function Hero() {
                   Explore Products <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition" />
                 </Button>
               </a>
+              <Link href="/catalog">
+                <Button variant="outline" className="h-14 px-8 rounded-full bg-transparent border-[#00A86B]/60 text-white hover:bg-[#00A86B]/15 hover:text-white font-semibold text-base backdrop-blur group">
+                  <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" /> Download Catalog
+                </Button>
+              </Link>
               <a href="#contact">
                 <Button variant="outline" className="h-14 px-8 rounded-full bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white font-semibold text-base backdrop-blur">Request a Quote</Button>
               </a>
@@ -525,7 +537,9 @@ function Products() {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <Button variant="outline" className="flex-1 rounded-full border-slate-300 text-slate-700 hover:bg-slate-50">Read More</Button>
+                  <Link href={`/products/${p.id}`} className="flex-1">
+                    <Button variant="outline" className="w-full rounded-full border-slate-300 text-slate-700 hover:bg-slate-50">Read More</Button>
+                  </Link>
                   <a href="#contact" className="flex-1"><Button className="w-full rounded-full bg-gradient-brand text-white">Inquire</Button></a>
                 </div>
               </div>
@@ -761,7 +775,7 @@ function VideoSection() {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} className="relative rounded-3xl overflow-hidden premium-shadow">
           {!play ? (
             <>
-              <img src="https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=1920&q=80" alt="" className="w-full h-[480px] md:h-[600px] object-cover" />
+              <img src="/images/factory/factory-interior-1-hd.png" alt="Factory preview" className="w-full h-[480px] md:h-[600px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1929]/80 via-[#0A1929]/30 to-transparent"></div>
               <div className="absolute inset-0 grid place-items-center">
                 <button onClick={() => setPlay(true)} className="relative">
@@ -777,7 +791,13 @@ function VideoSection() {
               </div>
             </>
           ) : (
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" title="Samruddhi Polyplast" className="w-full h-[480px] md:h-[600px]" allow="autoplay; encrypted-media" allowFullScreen />
+            <iframe
+              src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1`}
+              title="Samruddhi Polyplast"
+              className="w-full h-[480px] md:h-[600px]"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            />
           )}
         </motion.div>
       </div>
@@ -856,19 +876,29 @@ function Contact() {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ fullName: '', company: '', country: '', phone: '', email: '', product: '', message: '' });
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
     if (!form.fullName || !form.email) { toast.error('Please enter your name and email.'); return; }
-    setLoading(true);
-    try {
-      const res = await fetch('/api/inquiries', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
-      const j = await res.json();
-      if (j.ok) {
-        toast.success('Inquiry sent! Our sales team will contact you within one business day.');
-        setForm({ fullName: '', company: '', country: '', phone: '', email: '', product: '', message: '' });
-      } else { toast.error('Could not send inquiry. Please try again.'); }
-    } catch { toast.error('Network error. Please try again.'); }
-    finally { setLoading(false); }
+    
+    const subject = encodeURIComponent(`New Inquiry from ${form.fullName} - ${form.company || 'Website'}`);
+    const body = encodeURIComponent(`Name: ${form.fullName}
+Company: ${form.company}
+Country: ${form.country}
+Phone: ${form.phone}
+Email: ${form.email}
+Product Interested In: ${form.product}
+
+Message:
+${form.message}
+`);
+    
+    window.location.href = `mailto:sales@samruddhipolyplast.com?subject=${subject}&body=${body}`;
+    toast.success('Opening your email client to send inquiry...');
+    
+    // Small delay to allow email client to trigger before clearing
+    setTimeout(() => {
+      setForm({ fullName: '', company: '', country: '', phone: '', email: '', product: '', message: '' });
+    }, 1000);
   };
   return (
     <section id="contact" className="py-24 bg-white">
@@ -1014,7 +1044,12 @@ function Footer() {
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms &amp; Conditions</a>
           </div>
-          <div>Designed with <span className="text-[#00A86B]">♥</span> for Industrial Excellence.</div>
+          <div className="flex flex-col items-center md:items-end gap-1.5 mt-4 md:mt-0">
+            <div>Designed with <span className="text-[#00A86B]">♥</span> for Industrial Excellence.</div>
+            <div className="text-[11px] text-white/40">
+              Developed by <span className="text-white/70 font-semibold tracking-wide">Shahid Tamboli</span> | <a href="tel:9359841640" className="hover:text-[#00A86B] transition-colors">9359841640</a> | <a href="mailto:shahidtamboli512@gmail.com" className="hover:text-[#00A86B] transition-colors">shahidtamboli512@gmail.com</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -1042,6 +1077,91 @@ function ScrollTop() {
   );
 }
 
+/* ============ CATALOG CTA ============ */
+function CatalogCTA() {
+  return (
+    <section className="py-24 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+          className="relative rounded-3xl overflow-hidden noise-overlay" style={{ background: 'linear-gradient(135deg, #0A1929 0%, #003F7A 50%, #00A86B 100%)' }}>
+          <div className="floating-blob w-[500px] h-[500px] bg-white top-[-200px] right-[-200px] opacity-10"></div>
+          <div className="floating-blob w-[400px] h-[400px] bg-[#005BAC] bottom-[-200px] left-[-100px] opacity-30"></div>
+          <div className="relative z-10 p-10 md:p-16 text-white">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 glass px-4 py-1.5 rounded-full text-white/90 text-xs font-semibold tracking-widest uppercase mb-5">
+                  <FileDown className="w-3.5 h-3.5" /> Free Download
+                </div>
+                <h3 className="font-display text-3xl md:text-5xl font-bold leading-tight mb-4">
+                  Download Our <span className="text-[#7FFFB8]">Product Catalog</span>
+                </h3>
+                <p className="text-white/70 text-lg leading-relaxed max-w-xl">
+                  Get our complete 4-page catalog with full product range, machinery details, department information and contact details — all in one beautiful PDF.
+                </p>
+              </div>
+              <div className="lg:text-right">
+                <Link href="/catalog">
+                  <Button className="h-16 px-10 rounded-full bg-white text-[#005BAC] hover:bg-white/90 font-bold text-lg shadow-2xl group">
+                    <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
+                    Download Catalog
+                  </Button>
+                </Link>
+                <div className="mt-4 text-white/50 text-sm">PDF · 4 Pages · Free Download</div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ CERTIFICATIONS ============ */
+function Certifications() {
+  const docs = [
+    { name: 'GST Registration (REG-06)', desc: 'Official GST Allotment', file: 'GST-Registration-Certificate.pdf' },
+    { name: 'MSME Udyam Certificate', desc: 'Government of India MSME', file: 'MSME-Udyam-Certificate.pdf' },
+    { name: 'MSME Udyam Annexure', desc: 'Detailed Enterprise Report', file: 'MSME-Udyam-Annexure.pdf' },
+    { name: 'IEC Certificate', desc: 'Importer Exporter Code (DGFT)', file: 'IEC-Certificate.pdf' },
+  ];
+
+  return (
+    <section className="py-24 bg-slate-50 relative border-y border-slate-200">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+        <SectionHeading eyebrow="Quality Assurance & Compliance" title={<>Industry <span className="text-[#005BAC]">Certifications</span></>} sub="We strictly adhere to global quality standards. View and download our official compliance certificates." />
+        
+        
+        {/* Official PDF Downloads */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {docs.map((doc, i) => (
+            <motion.a 
+              key={i} 
+              href={`/images/certifications/${doc.file}`} 
+              target="_blank" 
+              rel="noreferrer"
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true }} 
+              variants={fadeUp} 
+              className="group bg-white border border-slate-200 hover:border-[#005BAC] rounded-2xl p-6 transition-all shadow-sm hover:shadow-xl hover:shadow-[#005BAC]/10 cursor-pointer flex flex-col"
+            >
+              <div className="w-12 h-12 rounded-xl bg-slate-100 group-hover:bg-[#005BAC]/10 text-[#005BAC] grid place-items-center mb-5 transition-colors">
+                <FileText className="w-6 h-6" />
+              </div>
+              <h4 className="font-bold text-slate-800 mb-1 leading-snug group-hover:text-[#005BAC] transition-colors">{doc.name}</h4>
+              <p className="text-xs text-slate-500 mb-6 flex-1">{doc.desc}</p>
+              
+              <div className="flex items-center gap-2 text-[#005BAC] font-semibold text-sm pt-4 border-t border-slate-100 mt-auto">
+                <ExternalLink className="w-4 h-4" /> View Document
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ============ MAIN ============ */
 function App() {
   return (
@@ -1058,9 +1178,11 @@ function App() {
       <FlowerSection />
       <Process />
       <Stats />
+      <Certifications />
       <Gallery />
       <VideoSection />
       <Testimonials />
+      <CatalogCTA />
       <FAQ />
       <Contact />
       <Footer />
