@@ -30,7 +30,7 @@ const HERO_SLIDES = [
     desc: 'Precision manufactured PP & LLDPE packaging products powered by modern machinery, virgin raw materials and complete customization for industrial and export requirements.',
   },
   {
-    img: '/images/factory/factory-interior-1-hd.png',
+    img: '/images/factory/factory-interior-1-hd.jpg',
     eyebrow: 'PP & LLDPE Specialists',
     title: 'Industrial Grade Films',
     highlight: 'Crafted with Precision',
@@ -63,7 +63,7 @@ const WHY = [
   { icon: Sparkles, title: 'Customer Satisfaction', desc: 'Long-term partnerships built on trust and consistency.' },
 ];
 
-const YOUTUBE_VIDEO_ID = 'JZEBKgggR-c';
+const YOUTUBE_VIDEO_ID = 'DwsPyseM83A';
 
 const CATEGORIES = [
   { title: 'PP Products', tag: 'Polypropylene', img: '/images/products/pp-packing-bags.png', count: '7 Products' },
@@ -142,7 +142,7 @@ const STATS = [
 
 const GALLERY = [
   '/images/factory/factory-exterior.jpg',
-  '/images/factory/factory-interior-1-hd.png',
+  '/images/factory/factory-interior-1-hd.jpg',
   '/images/factory/factory-interior-2-hd.png',
   '/images/machines/ld-tubing-machine-hd.png',
   '/images/machines/pp-extruder-45mm-hd.png',
@@ -157,10 +157,10 @@ const GALLERY = [
 ];
 
 const TESTIMONIALS = [
-  { name: 'Rajesh Kulkarni', company: 'Sunrise Floral Exports', country: 'India → Netherlands', rating: 5, quote: 'Their PP Gerbera covers helped us reduce transit damage dramatically. Consistent clarity every shipment.' },
-  { name: 'Anita Deshmukh', company: 'Green Valley Agri', country: 'India', rating: 5, quote: 'On-time deliveries and beautiful custom sizes. Samruddhi Polyplast has become a strategic supplier for us.' },
-  { name: 'Mohammed Aslam', company: 'Al-Noor Industries', country: 'UAE', rating: 5, quote: 'Export-grade quality at competitive rates. The team is responsive and quality is remarkably uniform.' },
-  { name: 'Priya Sharma', company: 'Bloomcraft Florists', country: 'India', rating: 5, quote: 'Crystal-clear sleeves that make our bouquets look premium. Highly recommend for flower packaging.' },
+  { name: 'Siddheshwar Packaging', company: 'Palus', country: 'Maharashtra', rating: 5, quote: 'Samruddhi Polyplast consistently delivers high-quality polypropylene and LLDPE packing bags with excellent finishing and durability. Their delivery commitment and product consistency have helped improve our packaging operations.' },
+  { name: 'Om Flowers', company: 'Kognoli', country: 'Karnataka', rating: 5, quote: 'The flower sleeves supplied by Samruddhi Polyplast for Gerbera and Orchids are crystal clear, strong, and attractive. Our flowers remain protected during transport and presentation quality has improved significantly.' },
+  { name: 'Super Industries', company: 'Kagal', country: 'Maharashtra', rating: 5, quote: 'We have been sourcing treatment rolls from Samruddhi Polyplast for our printing applications. The material quality, uniformity, and timely dispatch support our production schedules efficiently.' },
+  { name: 'Procurement Manager', company: 'Mahalaxmi Enterprises', country: 'Shiroli MIDC, Kolhapur', rating: 5, quote: 'We appreciate the professionalism and product quality offered by Samruddhi Polyplast. Their polypropylene and LLDPE packaging solutions are reliable, customizable, and competitively priced. The team understands industrial packaging requirements very well and provides prompt support whenever needed.' },
 ];
 
 const FAQS = [
@@ -314,15 +314,15 @@ function Hero() {
   }, [embla]);
   return (
     <section id="home" className="relative h-screen min-h-[720px] w-full overflow-hidden bg-[#0A1929]">
-      <div className="embla h-full" ref={emblaRef}>
+      <div className="embla h-full w-full overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex h-full">
           {HERO_SLIDES.map((s, i) => (
-            <div key={i} className="embla__slide relative flex-[0_0_100%] h-full">
+            <div key={i} className="embla__slide relative flex-[0_0_100%] w-full min-w-0 h-full overflow-hidden">
               <motion.img key={idx === i ? 'in' + i : 'out' + i} src={s.img} alt=""
                 className="absolute inset-0 w-full h-full object-cover"
                 initial={{ scale: 1.15 }} animate={{ scale: idx === i ? 1 : 1.15 }} transition={{ duration: 8, ease: 'linear' }} />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0A1929]/85 via-[#003F7A]/70 to-[#0A1929]/85"></div>
-              <div className="absolute inset-0 grid-bg opacity-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0A1929]/85 via-[#003F7A]/70 to-[#0A1929]/85 pointer-events-none"></div>
+              <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
             </div>
           ))}
         </div>
@@ -495,7 +495,7 @@ function Products() {
   return (
     <section id="products" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        <SectionHeading eyebrow="Our Products" title={<>Packaging <span className="text-gradient-brand">crafted for every industry</span></>} sub="From industrial films to export-quality flower sleeves — engineered for consistency, clarity and strength." />
+        <SectionHeading eyebrow="Our Products" title={<>Packaging <span className="text-gradient-brand">crafted for every industry</span></>} sub="From industrial films to export-quality flower sleeves — engineered for Consistency quality, strength and customised packaging." />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {CATEGORIES.map((c, i) => (
             <motion.a href="#products-grid" key={c.title} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} variants={fadeUp}
@@ -775,7 +775,7 @@ function VideoSection() {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} className="relative rounded-3xl overflow-hidden premium-shadow">
           {!play ? (
             <>
-              <img src="/images/factory/factory-interior-1-hd.png" alt="Factory preview" className="w-full h-[480px] md:h-[600px] object-cover" />
+              <img src="/images/factory/factory-interior-1-hd.jpg" alt="Factory preview" className="w-full h-[480px] md:h-[600px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1929]/80 via-[#0A1929]/30 to-transparent"></div>
               <div className="absolute inset-0 grid place-items-center">
                 <button onClick={() => setPlay(true)} className="relative">
@@ -928,8 +928,8 @@ ${form.message}
               <div className="space-y-6 mb-10">
                 {[
                   { icon: Mail, label: 'Email', value: <a href="mailto:sales@samruddhipolyplast.com" className="font-medium hover:text-[#7FFFB8]">sales@samruddhipolyplast.com</a> },
-                  { icon: Phone, label: 'Phone / Customer Care', value: <a href="tel:+919421752747" className="font-medium hover:text-[#7FFFB8]">+91 94217 52747</a> },
-                  { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">A/Po Yelur, G.No. 1439,<br/>Tal. Walva, Dist. Sangli,<br/>Maharashtra – 415 409, India</span> },
+                  { icon: Phone, label: 'Phone / Customer Care', value: <a href="tel:+919529623383" className="font-medium hover:text-[#7FFFB8]">+91 95296 23383</a> },
+                  { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">At Post Pune-Banglore Highway, Near Hotel Sai International,<br/>Yelur, Taluka: Walawa, Dist: Sangli,<br/>Maharashtra - 415 411</span> },
                   { icon: Clock, label: 'Working Hours', value: <span className="font-medium">Mon – Sat · 9:00 AM – 6:00 PM</span> },
                 ].map((it, k) => (
                   <div key={k} className="flex gap-4">
@@ -1032,8 +1032,8 @@ function Footer() {
             <h5 className="font-display font-bold mb-5 text-sm uppercase tracking-widest">Contact</h5>
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex gap-2.5"><Mail className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="mailto:sales@samruddhipolyplast.com" className="hover:text-white">sales@samruddhipolyplast.com</a></li>
-              <li className="flex gap-2.5"><Phone className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="tel:+919421752747" className="hover:text-white">+91 94217 52747</a></li>
-              <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />A/Po Yelur, Tal. Walva, Dist. Sangli, Maharashtra – 415 409</li>
+              <li className="flex gap-2.5"><Phone className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="tel:+919529623383" className="hover:text-white">+91 95296 23383</a></li>
+              <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />At Post Pune-Banglore Highway, Near Hotel Sai International, Yelur, Taluka: Walawa, Dist: Sangli, Maharashtra - 415 411</li>
               <li className="flex gap-2.5"><Clock className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />Mon – Sat · 9 AM – 6 PM</li>
             </ul>
           </div>

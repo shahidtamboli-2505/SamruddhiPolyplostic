@@ -24,8 +24,8 @@ export default async function ProductDetailPage({ params }) {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-3xl overflow-hidden shadow-xl bg-white">
-            <img src={product.img} alt={product.name} className="w-full h-[420px] object-cover" />
+          <div className="rounded-3xl overflow-hidden shadow-xl bg-white flex items-center justify-center">
+            <img src={product.img} alt={product.name} className="w-full h-auto max-h-[700px] object-contain bg-slate-50" />
           </div>
           <div className="space-y-6">
             <div className="rounded-3xl bg-white p-8 shadow-sm">

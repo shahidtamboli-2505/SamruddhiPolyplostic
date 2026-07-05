@@ -199,7 +199,7 @@ export default function CatalogPage() {
           {/* Factory Interior Image Collage */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0px', height: '180px' }}>
             <div style={{ position: 'relative', overflow: 'hidden' }}>
-              <img src="/images/factory/factory-interior-1-hd.png" alt="Production Floor" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/factory/factory-interior-1-hd.jpg" alt="Production Floor" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,25,41,0.7) 0%, transparent 50%)' }}></div>
               <div style={{ position: 'absolute', bottom: '12px', left: '16px', color: 'white' }}>
                 <div style={{ fontSize: '13px', fontWeight: '700' }}>Production Floor</div>
@@ -248,7 +248,7 @@ export default function CatalogPage() {
               <div style={{ display: 'flex', gap: '24px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FFFB8" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  <span style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>+91 94217 52747</span>
+                  <span style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>+91 95296 23383</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FFFB8" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -271,7 +271,7 @@ export default function CatalogPage() {
             <div style={{ marginBottom: '20px' }}>
               <div style={{ color: '#005BAC', fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '6px' }}>Our Products</div>
               <h2 style={{ fontSize: '28px', fontWeight: '800', color: '#0A1929', lineHeight: '1.1', marginBottom: '6px' }}>Complete Product Range</h2>
-              <p style={{ fontSize: '12px', color: '#64748b', lineHeight: '1.5' }}>From industrial films to export-quality flower sleeves — engineered for consistency, clarity and strength.</p>
+              <p style={{ fontSize: '12px', color: '#64748b', lineHeight: '1.5' }}>From industrial films to export-quality flower sleeves — engineered for Consistency quality, strength and customised packaging.</p>
             </div>
 
             {/* PP Products Row */}
@@ -283,7 +283,7 @@ export default function CatalogPage() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
                 {[
                   { name: 'PP Packing Bags', size: '3" – 22" · 51μ', apps: 'Industrial, Food, Chemical', img: '/images/products/pp-packing-bags.png' },
-                  { name: 'PP Treatment Rolls', size: '3" – 22" · 51μ', apps: 'Auto Packing, Food', img: '/images/products/pp-treatment-roll.png' },
+                  { name: 'PP Treatment Rolls', size: '3" – 22" · 51μ', apps: 'In plastic printing industries', img: '/images/products/pp-treatment-roll.png' },
                   { name: 'PP Sheets', size: 'Custom sizes', apps: 'Packaging, Lamination', img: '/images/products/pp-packing-bags.png' },
                 ].map((p, i) => (
                   <div key={i} style={{ borderRadius: '10px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
@@ -336,7 +336,7 @@ export default function CatalogPage() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
                 {[
-                  { name: 'PP Gerbera Cover', size: '4 × 3', apps: 'Flower Export, Bouquets', img: '/images/flower/pp-gerbera-cover.png' },
+                  { name: 'PP Gerbera Cover', size: '4 × 3', apps: 'For protection for flower', img: '/images/flower/pp-gerbera-cover.png' },
                   { name: 'PP Gypsophila / Orchid Sleeves', size: '20 × 25', apps: 'Gypsophila, Orchid Export', img: '/images/flower/pp-gypso-orchid-sleeves.png' },
                   { name: 'PP Chrysanthemum Sleeves', size: '18 × 25', apps: 'Chrysanthemum Export', img: '/images/flower/pp-chrysanthemum-sleeves.png' },
                 ].map((p, i) => (
@@ -560,7 +560,7 @@ export default function CatalogPage() {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                   <div style={{ padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>Phone</div>
-                    <div style={{ fontSize: '15px', fontWeight: '700' }}>+91 94217 52747</div>
+                    <div style={{ fontSize: '15px', fontWeight: '700' }}>+91 95296 23383</div>
                   </div>
                   <div style={{ padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>Email</div>
@@ -568,7 +568,7 @@ export default function CatalogPage() {
                   </div>
                   <div style={{ padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)', gridColumn: '1 / -1' }}>
                     <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>Factory Address</div>
-                    <div style={{ fontSize: '14px', fontWeight: '700' }}>A/Po Yelur, G.No. 1439, Tal. Walva, Dist. Sangli, Maharashtra – 415 409, India</div>
+                    <div style={{ fontSize: '14px', fontWeight: '700' }}>At Post Pune-Banglore Highway, Near Hotel Sai International, Yelur, Taluka: Walawa, Dist: Sangli, Maharashtra - 415 411</div>
                   </div>
                 </div>
 
