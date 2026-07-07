@@ -12,8 +12,8 @@ import Link from 'next/link';
 const DEPARTMENTS = [
   {
     name: 'Production Department',
-    head: 'Mr. Satvasheel Patil',
-    role: 'Production Head & Founder',
+    head: 'Production Team Lead',
+    role: 'Production Head',
     color: '#005BAC',
     desc: 'Operates modern extrusion lines (45mm & 55mm PP extruders, LD tubing machine) and 28" double-decker cutting machine.',
     responsibilities: ['Extrusion line operation', 'Film quality control', 'Production scheduling', 'Machine maintenance'],
@@ -67,7 +67,7 @@ async function downloadPDF() {
   for (let i = 0; i < pages.length; i++) {
     const page = pages[i];
     const canvas = await html2canvas(page, {
-      scale: 2,
+      scale: 3,
       useCORS: true,
       allowTaint: true,
       backgroundColor: '#ffffff',
@@ -78,7 +78,7 @@ async function downloadPDF() {
       windowHeight: 1123,
     });
 
-    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+    const imgData = canvas.toDataURL('image/jpeg', 1.0);
     if (i > 0) pdf.addPage();
     pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
   }
@@ -93,7 +93,7 @@ function PageHeader({ label }) {
   return (
     <div style={{ background: 'linear-gradient(90deg, #005BAC, #003F7A)', padding: '18px 50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <img src="/images/logo/samruddhi-logo.png" alt="Logo" style={{ width: '32px', height: '32px', borderRadius: '6px', background: 'white', padding: '2px', objectFit: 'contain' }} />
+        <div style={{ backgroundImage: 'url(/images/logo/samruddhi-logo.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', width: '32px', height: '32px', borderRadius: '6px', background: 'white', padding: '2px' }} />
         <span style={{ color: 'white', fontWeight: '700', fontSize: '14px' }}>Samruddhi Polyplast</span>
       </div>
       <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase' }}>{label}</span>
@@ -169,7 +169,7 @@ export default function CatalogPage() {
         <div className="catalog-page bg-white shadow-2xl rounded-lg overflow-hidden" style={{ width: '794px', height: '1123px', margin: '0 auto', display: 'flex', flexDirection: 'column' }}>
           {/* Cover Hero — Full-width factory image */}
           <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }}>
-            <img src="/images/factory/factory-exterior.jpg" alt="Samruddhi Polyplast Factory" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div style={{ backgroundImage: 'url(/images/factory/factory-exterior.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(10,25,41,0.88) 0%, rgba(0,63,122,0.75) 50%, rgba(0,91,172,0.65) 100%)' }}></div>
             {/* Decorative circles */}
             <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '220px', height: '220px', borderRadius: '50%', background: 'rgba(0,168,107,0.15)' }}></div>
@@ -179,7 +179,7 @@ export default function CatalogPage() {
               {/* Logo */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '32px' }}>
                 <div style={{ width: '60px', height: '60px', borderRadius: '14px', background: 'white', padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 30px rgba(0,0,0,0.3)' }}>
-                  <img src="/images/logo/samruddhi-logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  <div style={{ backgroundImage: 'url(/images/logo/samruddhi-logo.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', width: '100%', height: '100%' }} />
                 </div>
                 <div>
                   <div style={{ color: 'white', fontSize: '22px', fontWeight: '800', letterSpacing: '-0.5px' }}>Samruddhi <span style={{ color: '#00A86B' }}>Polyplast</span></div>
@@ -188,7 +188,7 @@ export default function CatalogPage() {
               </div>
               <div style={{ color: 'rgba(127,255,184,0.9)', fontSize: '12px', letterSpacing: '5px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '12px' }}>Product Catalog 2026</div>
               <h1 style={{ color: 'white', fontSize: '44px', fontWeight: '800', lineHeight: '1.05', marginBottom: '14px', maxWidth: '500px' }}>
-                Premium Plastic Packaging <span style={{ background: 'linear-gradient(90deg, #7FC7FF, #7FFFB8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Solutions</span>
+                Premium Plastic Packaging <span style={{ color: '#7FFFB8' }}>Solutions</span>
               </h1>
               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', lineHeight: '1.6', maxWidth: '460px' }}>
                 Precision manufactured PP & LLDPE packaging products powered by modern machinery, virgin raw materials and complete customization.
@@ -199,7 +199,7 @@ export default function CatalogPage() {
           {/* Factory Interior Image Collage */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0px', height: '180px' }}>
             <div style={{ position: 'relative', overflow: 'hidden' }}>
-              <img src="/images/factory/factory-interior-1-hd.jpg" alt="Production Floor" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div style={{ backgroundImage: 'url(/images/factory/factory-interior-1-hd.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,25,41,0.7) 0%, transparent 50%)' }}></div>
               <div style={{ position: 'absolute', bottom: '12px', left: '16px', color: 'white' }}>
                 <div style={{ fontSize: '13px', fontWeight: '700' }}>Production Floor</div>
@@ -207,7 +207,7 @@ export default function CatalogPage() {
               </div>
             </div>
             <div style={{ position: 'relative', overflow: 'hidden' }}>
-              <img src="/images/factory/factory-interior-2-hd.png" alt="Manufacturing Area" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div style={{ backgroundImage: 'url(/images/factory/factory-interior-2-hd.png)', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,25,41,0.7) 0%, transparent 50%)' }}></div>
               <div style={{ position: 'absolute', bottom: '12px', left: '16px', color: 'white' }}>
                 <div style={{ fontSize: '13px', fontWeight: '700' }}>Manufacturing Area</div>
@@ -288,7 +288,7 @@ export default function CatalogPage() {
                 ].map((p, i) => (
                   <div key={i} style={{ borderRadius: '10px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
                     <div style={{ height: '110px', overflow: 'hidden', position: 'relative' }}>
-                      <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div style={{ backgroundImage: `url(${p.img})`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
                       <div style={{ position: 'absolute', top: '6px', left: '6px', background: '#005BAC', color: 'white', fontSize: '8px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>PP</div>
                     </div>
                     <div style={{ padding: '10px' }}>
@@ -315,7 +315,7 @@ export default function CatalogPage() {
                 ].map((p, i) => (
                   <div key={i} style={{ borderRadius: '10px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
                     <div style={{ height: '110px', overflow: 'hidden', position: 'relative' }}>
-                      <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div style={{ backgroundImage: `url(${p.img})`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
                       <div style={{ position: 'absolute', top: '6px', left: '6px', background: '#00A86B', color: 'white', fontSize: '8px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>LLDPE</div>
                     </div>
                     <div style={{ padding: '10px' }}>
@@ -342,7 +342,7 @@ export default function CatalogPage() {
                 ].map((p, i) => (
                   <div key={i} style={{ borderRadius: '10px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
                     <div style={{ height: '110px', overflow: 'hidden', position: 'relative' }}>
-                      <img src={p.img} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div style={{ backgroundImage: `url(${p.img})`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
                       <div style={{ position: 'absolute', top: '6px', left: '6px', background: '#E91E63', color: 'white', fontSize: '8px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>FLOWER</div>
                     </div>
                     <div style={{ padding: '10px' }}>
@@ -389,7 +389,7 @@ export default function CatalogPage() {
                 ].map((m, i) => (
                   <div key={i} style={{ borderRadius: '10px', border: '1px solid #e2e8f0', overflow: 'hidden', background: '#fafbfc' }}>
                     <div style={{ height: '105px', overflow: 'hidden', position: 'relative' }}>
-                      <img src={m.img} alt={m.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div style={{ backgroundImage: `url(${m.img})`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
                       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,25,41,0.6) 0%, transparent 40%)' }}></div>
                       <div style={{ position: 'absolute', top: '6px', left: '6px', background: 'linear-gradient(135deg, #005BAC, #003F7A)', color: 'white', fontSize: '9px', fontWeight: '800', padding: '3px 8px', borderRadius: '4px' }}>MACHINE {String(i + 1).padStart(2, '0')}</div>
                     </div>
@@ -545,7 +545,7 @@ export default function CatalogPage() {
                   '/images/flower/pp-chrysanthemum-sleeves.png',
                 ].map((img, i) => (
                   <div key={i} style={{ borderRadius: '8px', overflow: 'hidden' }}>
-                    <img src={img} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
                   </div>
                 ))}
               </div>
