@@ -874,32 +874,56 @@ function FAQ() {
 /* ============ CONTACT ============ */
 function Contact() {
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ fullName: '', company: '', country: '', phone: '', email: '', product: '', message: '' });
+  const [form, setForm] = useState({ fullName: '', company: '', country: '', phone: '', email: '', product: '', message: '', honeypot: '' });
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  
+  const sanitize = (str) => str.replace(/[<>&]/g, '').trim();
+
   const submit = (e) => {
     e.preventDefault();
+    if (form.honeypot) return; // Silent Drop (Honeypot protection against bots)
+
     if (!form.fullName || !form.email) { toast.error('Please enter your name and email.'); return; }
     
-    const subject = encodeURIComponent(`New Inquiry from ${form.fullName} - ${form.company || 'Website'}`);
-    const body = encodeURIComponent(`Name: ${form.fullName}
-Company: ${form.company}
-Country: ${form.country}
-Phone: ${form.phone}
-Email: ${form.email}
-Product Interested In: ${form.product}
+    // Robust Structural Regex Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) { toast.error('Please enter a valid email address.'); return; }
+    
+    if (form.phone && !/^[+0-9\s-()]{7,25}$/.test(form.phone)) {
+      toast.error('Please enter a valid phone number (numeric only).'); return;
+    }
 
-Message:
-${form.message}
-`);
+    // Client-Side Rate Limiting (Max 3 / Hr)
+    try {
+      const history = JSON.parse(localStorage.getItem('inquiryLog') || '[]');
+      const now = Date.now();
+      const recent = history.filter(ts => (now - ts) < 3600000);
+      if (recent.length >= 3) {
+        toast.error('Rate limit reached. Please email us directly.'); return;
+      }
+      localStorage.setItem('inquiryLog', JSON.stringify([...recent, now]));
+    } catch(err) { /* ignore LS errors */ }
+
+    // XSS Sanitization Pass
+    const sName = sanitize(form.fullName);
+    const sCompany = sanitize(form.company);
+    const sCountry = sanitize(form.country);
+    const sPhone = sanitize(form.phone);
+    const sEmail = sanitize(form.email);
+    const sProduct = sanitize(form.product);
+    const sMessage = sanitize(form.message);
+    
+    const subject = encodeURIComponent(`New Inquiry from ${sName} - ${sCompany || 'Website'}`);
+    const body = encodeURIComponent(`Name: ${sName}\nCompany: ${sCompany}\nCountry: ${sCountry}\nPhone: ${sPhone}\nEmail: ${sEmail}\nProduct Interested In: ${sProduct}\n\nMessage:\n${sMessage}\n`);
     
     window.location.href = `mailto:sales@samruddhipolyplast.com?subject=${subject}&body=${body}`;
     toast.success('Opening your email client to send inquiry...');
     
-    // Small delay to allow email client to trigger before clearing
     setTimeout(() => {
-      setForm({ fullName: '', company: '', country: '', phone: '', email: '', product: '', message: '' });
+      setForm({ fullName: '', company: '', country: '', phone: '', email: '', product: '', message: '', honeypot: '' });
     }, 1000);
   };
+
   return (
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
@@ -929,7 +953,7 @@ ${form.message}
                 {[
                   { icon: Mail, label: 'Email', value: <a href="mailto:sales@samruddhipolyplast.com" className="font-medium hover:text-[#7FFFB8]">sales@samruddhipolyplast.com</a> },
                   { icon: Phone, label: 'Phone / Customer Care', value: <a href="tel:+919529623383" className="font-medium hover:text-[#7FFFB8]">+91 95296 23383</a> },
-                  { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">At Post Pune-Banglore Highway, Near Hotel Sai International,<br/>Yelur, Taluka: Walawa, Dist: Sangli,<br/>Maharashtra - 415 411</span> },
+                  { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">A/T: Yelur, Pune–Bangalore Highway,<br/>Near Hotel Sai International,<br/>Taluka: Walwa, District: Sangli,<br/>Maharashtra – 415 411, India</span> },
                   { icon: Clock, label: 'Working Hours', value: <span className="font-medium">Mon – Sat · 9:00 AM – 6:00 PM</span> },
                 ].map((it, k) => (
                   <div key={k} className="flex gap-4">
@@ -960,6 +984,7 @@ ${form.message}
           <motion.form id="inquiry-form" onSubmit={submit} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 premium-shadow">
             <h4 className="font-display font-bold text-2xl mb-6 text-[#0A1929]">Send an Inquiry</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input type="text" style={{ display: 'none' }} value={form.honeypot} onChange={set('honeypot')} tabIndex={-1} autoComplete="off" />
               <Input value={form.fullName} onChange={set('fullName')} placeholder="Full Name *" className="h-12 rounded-xl" />
               <Input value={form.company} onChange={set('company')} placeholder="Company Name" className="h-12 rounded-xl" />
               <Input value={form.country} onChange={set('country')} placeholder="Country" className="h-12 rounded-xl" />
@@ -1033,7 +1058,7 @@ function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex gap-2.5"><Mail className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="mailto:sales@samruddhipolyplast.com" className="hover:text-white">sales@samruddhipolyplast.com</a></li>
               <li className="flex gap-2.5"><Phone className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="tel:+919529623383" className="hover:text-white">+91 95296 23383</a></li>
-              <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />At Post Pune-Banglore Highway, Near Hotel Sai International, Yelur, Taluka: Walawa, Dist: Sangli, Maharashtra - 415 411</li>
+              <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />A/T: Yelur, Pune–Bangalore Highway, Near Hotel Sai International, Taluka: Walwa, District: Sangli, Maharashtra – 415 411, India</li>
               <li className="flex gap-2.5"><Clock className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />Mon – Sat · 9 AM – 6 PM</li>
             </ul>
           </div>

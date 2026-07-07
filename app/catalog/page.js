@@ -568,7 +568,7 @@ export default function CatalogPage() {
                   </div>
                   <div style={{ padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)', gridColumn: '1 / -1' }}>
                     <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>Factory Address</div>
-                    <div style={{ fontSize: '14px', fontWeight: '700' }}>At Post Pune-Banglore Highway, Near Hotel Sai International, Yelur, Taluka: Walawa, Dist: Sangli, Maharashtra - 415 411</div>
+                    <div style={{ fontSize: '14px', fontWeight: '700' }}>A/T: Yelur, Pune–Bangalore Highway, Near Hotel Sai International, Taluka: Walwa, District: Sangli, Maharashtra – 415 411, India</div>
                   </div>
                 </div>
 
