@@ -169,11 +169,11 @@ export default function CatalogPage() {
         <div className="catalog-page bg-white shadow-2xl rounded-lg overflow-hidden" style={{ width: '794px', height: '1123px', margin: '0 auto', display: 'flex', flexDirection: 'column' }}>
           {/* Cover Hero — Full-width factory image */}
           <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }}>
-            <div style={{ backgroundImage: 'url(/images/factory/factory-exterior.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', height: '100%' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(10,25,41,0.88) 0%, rgba(0,63,122,0.75) 50%, rgba(0,91,172,0.65) 100%)' }}></div>
+            <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/images/factory/factory-exterior.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0 }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(10,25,41,0.88) 0%, rgba(0,63,122,0.75) 50%, rgba(0,91,172,0.65) 100%)', zIndex: 1 }}></div>
             {/* Decorative circles */}
-            <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '220px', height: '220px', borderRadius: '50%', background: 'rgba(0,168,107,0.15)' }}></div>
-            <div style={{ position: 'absolute', bottom: '-40px', left: '-40px', width: '180px', height: '180px', borderRadius: '50%', background: 'rgba(0,91,172,0.2)' }}></div>
+            <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '220px', height: '220px', borderRadius: '50%', background: 'rgba(0,168,107,0.15)', zIndex: 2 }}></div>
+            <div style={{ position: 'absolute', bottom: '-40px', left: '-40px', width: '180px', height: '180px', borderRadius: '50%', background: 'rgba(0,91,172,0.2)', zIndex: 2 }}></div>
 
             <div style={{ position: 'absolute', inset: 0, padding: '44px 50px', display: 'flex', flexDirection: 'column', justifyContent: 'center', zIndex: 10 }}>
               {/* Logo */}
@@ -187,9 +187,12 @@ export default function CatalogPage() {
                 </div>
               </div>
               <div style={{ color: 'rgba(127,255,184,0.9)', fontSize: '12px', letterSpacing: '5px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '12px' }}>Product Catalog 2026</div>
-              <h1 style={{ color: 'white', fontSize: '44px', fontWeight: '800', lineHeight: '1.05', marginBottom: '14px', maxWidth: '500px' }}>
+              <h1 style={{ color: 'white', fontSize: '44px', fontWeight: '800', lineHeight: '1.05', marginBottom: '10px', maxWidth: '500px' }}>
                 Premium Plastic Packaging <span style={{ color: '#7FFFB8' }}>Solutions</span>
               </h1>
+              <div style={{ color: 'white', fontSize: '15px', fontWeight: '800', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '14px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+                &quot;Reliable Packaging For Every Industry&quot;
+              </div>
               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', lineHeight: '1.6', maxWidth: '460px' }}>
                 Precision manufactured PP & LLDPE packaging products powered by modern machinery, virgin raw materials and complete customization.
               </p>
@@ -408,12 +411,12 @@ export default function CatalogPage() {
             </div>
 
             {/* Process Flow */}
-            <div style={{ marginBottom: '22px' }}>
-              <div style={{ color: '#00A86B', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '8px' }}>7-Step Manufacturing Process</div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 8px', background: 'linear-gradient(90deg, #f0f7ff, #f0fdf4)', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
+            <div style={{ marginBottom: '14px' }}>
+              <div style={{ color: '#00A86B', fontSize: '10px', letterSpacing: '3px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '6px' }}>7-Step Manufacturing Process</div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 8px', background: 'linear-gradient(90deg, #f0f7ff, #f0fdf4)', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
                 {['Raw Material', 'Extrusion', 'Film Mfg.', 'Cutting', 'QA Check', 'Packing', 'Dispatch'].map((step, i) => (
                   <div key={i} style={{ textAlign: 'center', flex: 1 }}>
-                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'linear-gradient(135deg, #005BAC, #00A86B)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '10px', margin: '0 auto 4px' }}>{i + 1}</div>
+                    <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'linear-gradient(135deg, #005BAC, #00A86B)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '10px', margin: '0 auto 4px' }}>{i + 1}</div>
                     <div style={{ fontSize: '8px', fontWeight: '600', color: '#0A1929' }}>{step}</div>
                   </div>
                 ))}
@@ -422,12 +425,12 @@ export default function CatalogPage() {
 
             {/* Departments Section */}
             <div>
-              <div style={{ color: '#005BAC', fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '6px' }}>Organisation Structure</div>
-              <h2 style={{ fontSize: '24px', fontWeight: '800', color: '#0A1929', lineHeight: '1.1', marginBottom: '10px' }}>Our Departments</h2>
+              <div style={{ color: '#005BAC', fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '4px' }}>Organisation Structure</div>
+              <h2 style={{ fontSize: '24px', fontWeight: '800', color: '#0A1929', lineHeight: '1.1', marginBottom: '8px' }}>Our Departments</h2>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '14px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '10px' }}>
                 {DEPARTMENTS.map((dept, i) => (
-                  <div key={i} style={{ padding: '14px 14px 14px 18px', borderRadius: '10px', border: '1px solid #e2e8f0', background: 'linear-gradient(135deg, #ffffff, #f8fafc)', position: 'relative', overflow: 'hidden' }}>
+                  <div key={i} style={{ padding: '10px 12px 10px 16px', borderRadius: '10px', border: '1px solid #e2e8f0', background: 'linear-gradient(135deg, #ffffff, #f8fafc)', position: 'relative', overflow: 'hidden' }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: dept.color }}></div>
                     <div style={{ fontWeight: '700', fontSize: '12px', color: '#0A1929', marginBottom: '2px' }}>{dept.name}</div>
                     <div style={{ fontSize: '9px', color: '#94a3b8', marginBottom: '6px' }}>{dept.head} — {dept.role}</div>
@@ -480,11 +483,11 @@ export default function CatalogPage() {
         <div className="catalog-page bg-white shadow-2xl rounded-lg overflow-hidden" style={{ width: '794px', height: '1123px', margin: '0 auto', display: 'flex', flexDirection: 'column' }}>
           <PageHeader label="Industries & Contact" />
 
-          <div style={{ padding: '28px 50px', flex: 1 }}>
+          <div style={{ padding: '24px 50px', flex: 1 }}>
             {/* Industries */}
-            <div style={{ marginBottom: '28px' }}>
-              <div style={{ color: '#005BAC', fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '6px' }}>Industries We Serve</div>
-              <h2 style={{ fontSize: '26px', fontWeight: '800', color: '#0A1929', lineHeight: '1.1', marginBottom: '14px' }}>Trusted Across 10+ Industries</h2>
+            <div style={{ marginBottom: '20px' }}>
+              <div style={{ color: '#005BAC', fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '4px' }}>Industries We Serve</div>
+              <h2 style={{ fontSize: '26px', fontWeight: '800', color: '#0A1929', lineHeight: '1.1', marginBottom: '10px' }}>Trusted Across 10+ Industries</h2>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr', gap: '8px' }}>
                 {[
                   { name: 'Agriculture', icon: '🌿' },
@@ -508,10 +511,10 @@ export default function CatalogPage() {
             </div>
 
             {/* Why Choose Us */}
-            <div style={{ marginBottom: '28px' }}>
-              <div style={{ color: '#00A86B', fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '6px' }}>Why Choose Us</div>
-              <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#0A1929', marginBottom: '12px' }}>Our Commitments</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+            <div style={{ marginBottom: '20px' }}>
+              <div style={{ color: '#00A86B', fontSize: '11px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '4px' }}>Why Choose Us</div>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#0A1929', marginBottom: '10px' }}>Our Commitments</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
                 {[
                   { title: 'Premium Quality', desc: 'Consistent thickness, clarity and strength on every batch.' },
                   { title: 'Modern Machinery', desc: 'State-of-the-art extrusion and cutting infrastructure.' },
@@ -534,9 +537,9 @@ export default function CatalogPage() {
             </div>
 
             {/* Product Gallery Strip */}
-            <div style={{ marginBottom: '28px' }}>
-              <div style={{ fontSize: '10px', color: '#005BAC', letterSpacing: '3px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '8px' }}>Product Showcase</div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr', gap: '6px', height: '80px' }}>
+            <div style={{ marginBottom: '20px' }}>
+              <div style={{ fontSize: '10px', color: '#005BAC', letterSpacing: '3px', textTransform: 'uppercase', fontWeight: '700', marginBottom: '6px' }}>Product Showcase</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr', gap: '6px', height: '65px' }}>
                 {[
                   '/images/products/pp-packing-bags.png',
                   '/images/products/pp-treatment-roll.jpg',
@@ -554,9 +557,9 @@ export default function CatalogPage() {
 
             {/* Contact Section */}
             <div style={{ borderRadius: '14px', overflow: 'hidden', border: '1px solid #e2e8f0' }}>
-              <div style={{ background: 'linear-gradient(135deg, #0A1929, #003F7A)', padding: '24px', color: 'white' }}>
-                <div style={{ fontSize: '10px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', color: '#7FFFB8', marginBottom: '6px' }}>Get In Touch</div>
-                <h3 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '14px' }}>Let&apos;s Talk Packaging</h3>
+              <div style={{ background: 'linear-gradient(135deg, #0A1929, #003F7A)', padding: '16px 24px', color: 'white' }}>
+                <div style={{ fontSize: '10px', letterSpacing: '4px', textTransform: 'uppercase', fontWeight: '700', color: '#7FFFB8', marginBottom: '4px' }}>Get In Touch</div>
+                <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '10px' }}>Let&apos;s Talk Packaging</h3>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                   <div style={{ padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
@@ -569,19 +572,19 @@ export default function CatalogPage() {
                   </div>
                   <div style={{ padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)', gridColumn: '1 / -1' }}>
                     <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px' }}>Factory Address</div>
-                    <div style={{ fontSize: '14px', fontWeight: '700' }}>A/T: Yelur, Pune–Bangalore Highway, Near Hotel Sai International, Taluka: Walwa, District: Sangli, Maharashtra – 415 411, India</div>
+                    <div style={{ fontSize: '14px', fontWeight: '700' }}>A/p: Yelur, Pune–Bangalore Highway, Near Hotel Sai International, Taluka: Walwa, District: Sangli, Maharashtra – 415 411, India</div>
                   </div>
                 </div>
 
                 {/* Social Links Formatted for PDF */}
-                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.5)', letterSpacing: '2px', textTransform: 'uppercase', marginRight: '6px' }}>Follow Us On:</div>
                   {[
-                    { icon: Instagram, label: '@2024_smaruddhi_polypalst', href: 'https://www.instagram.com/2024_smaruddhi_polypalst' },
+                    { icon: Instagram, label: '@2024_samruddhi_polyplast', href: 'https://www.instagram.com/2024_smaruddhi_polypalst' },
                     { icon: Facebook, label: 'Samruddhi Polyplast', href: 'https://www.facebook.com/share/18BaKdBiUd/' },
                     { icon: Linkedin, label: 'Samruddhi Polyplast', href: 'https://www.linkedin.com/in/satvasheel-patil-91a983153' },
                   ].map((s, i) => (
-                    <a key={i} href={s.href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '6px 10px', borderRadius: '6px' }}>
+                    <a key={i} href={s.href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.1)', padding: '5px 8px', borderRadius: '6px' }}>
                       <s.icon style={{ width: '12px', height: '12px', color: 'white' }} />
                       <span style={{ color: 'white', fontSize: '9px', fontWeight: '600' }}>{s.label}</span>
                     </a>

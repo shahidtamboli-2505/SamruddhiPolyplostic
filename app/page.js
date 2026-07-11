@@ -960,7 +960,7 @@ function Contact() {
                 {[
                   { icon: Mail, label: 'Email', value: <a href="mailto:sales@samruddhipolyplast.com" className="font-medium hover:text-[#7FFFB8]">sales@samruddhipolyplast.com</a> },
                   { icon: Phone, label: 'Phone / Customer Care', value: <a href="tel:+919529623383" className="font-medium hover:text-[#7FFFB8]">+91 95296 23383</a> },
-                  { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">A/T: Yelur, Pune–Bangalore Highway,<br/>Near Hotel Sai International,<br/>Taluka: Walwa, District: Sangli,<br/>Maharashtra – 415 411, India</span> },
+                  { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">A/p: Yelur, Pune–Bangalore Highway,<br/>Near Hotel Sai International,<br/>Taluka: Walwa, District: Sangli,<br/>Maharashtra – 415 411, India</span> },
                   { icon: Clock, label: 'Working Hours', value: <span className="font-medium">Wed – Mon · 8:00 AM – 8:00 PM</span> },
                 ].map((it, k) => (
                   <div key={k} className="flex gap-4">
@@ -1065,7 +1065,7 @@ function Footer() {
             <ul className="space-y-3 text-sm text-white/60">
               <li className="flex gap-2.5"><Mail className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="mailto:sales@samruddhipolyplast.com" className="hover:text-white">sales@samruddhipolyplast.com</a></li>
               <li className="flex gap-2.5"><Phone className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="tel:+919529623383" className="hover:text-white">+91 95296 23383</a></li>
-              <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />A/T: Yelur, Pune–Bangalore Highway, Near Hotel Sai International, Taluka: Walwa, District: Sangli, Maharashtra – 415 411, India</li>
+              <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />A/p: Yelur, Pune–Bangalore Highway, Near Hotel Sai International, Taluka: Walwa, District: Sangli, Maharashtra – 415 411, India</li>
               <li className="flex gap-2.5"><Clock className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />Wed – Mon · 8 AM – 8 PM</li>
             </ul>
           </div>
