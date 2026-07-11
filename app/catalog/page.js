@@ -143,7 +143,7 @@ export default function CatalogPage() {
             >
               {downloading ? (
                 <>
-                  <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
@@ -237,7 +237,7 @@ export default function CatalogPage() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginBottom: '24px' }}>
               {['100% Virgin Raw Materials', 'Custom Manufacturing', 'Modern Extrusion Lines', 'Export Quality Standards', 'On-Time Delivery', 'Competitive Pricing'].map((usp, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 10px', borderRadius: '8px', background: '#f8fafc' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A86B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A86B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
                   <span style={{ fontSize: '11px', fontWeight: '600', color: '#0A1929' }}>{usp}</span>
                 </div>
               ))}
@@ -247,11 +247,11 @@ export default function CatalogPage() {
             <div style={{ background: 'linear-gradient(90deg, #0A1929, #003F7A)', borderRadius: '12px', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' }}>
               <div style={{ display: 'flex', gap: '24px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FFFB8" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FFFB8" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   <span style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>+91 95296 23383</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FFFB8" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FFFB8" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                   <span style={{ color: 'white', fontSize: '12px', fontWeight: '600' }}>sales@samruddhipolyplast.com</span>
                 </div>
               </div>
@@ -283,7 +283,7 @@ export default function CatalogPage() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
                 {[
                   { name: 'PP Packing Bags', size: '3" – 22" · 51μ', apps: 'Industrial, Food, Chemical', img: '/images/products/pp-packing-bags.png' },
-                  { name: 'PP Treatment Rolls', size: '3" – 22" · 51μ', apps: 'In plastic printing industries', img: '/images/products/pp-treatment-roll.png' },
+                  { name: 'PP Treatment Rolls', size: '3" – 22" · 51μ', apps: 'In plastic printing industries', img: '/images/products/pp-treatment-roll.jpg' },
                   { name: 'PP Sheets', size: 'Custom sizes', apps: 'Packaging, Lamination', img: '/images/products/pp-packing-bags.png' },
                 ].map((p, i) => (
                   <div key={i} style={{ borderRadius: '10px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
@@ -357,7 +357,7 @@ export default function CatalogPage() {
 
             {/* All products are 100% virgin */}
             <div style={{ marginTop: '16px', padding: '12px 16px', borderRadius: '10px', background: 'linear-gradient(90deg, #f0f7ff, #f0fdf4)', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A86B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00A86B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
               <div>
                 <span style={{ fontSize: '12px', fontWeight: '700', color: '#0A1929' }}>All products manufactured using 100% virgin raw materials — </span>
                 <span style={{ fontSize: '12px', color: '#64748b' }}>PP Film-Grade & LLDPE Film-Grade granules. Custom sizes, thickness & printing available.</span>
@@ -435,7 +435,7 @@ export default function CatalogPage() {
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3px', marginBottom: '8px' }}>
                       {dept.responsibilities.map((r, j) => (
                         <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#00A86B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#00A86B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
                           <span style={{ fontSize: '9px', color: '#475569' }}>{r}</span>
                         </div>
                       ))}
@@ -497,6 +497,7 @@ export default function CatalogPage() {
                   { name: 'Export', icon: '✈️' },
                   { name: 'Pharma', icon: '💊' },
                   { name: 'Automotive', icon: '🚗' },
+                  { name: 'Electronics & Telecom', icon: '⚡' },
                 ].map((ind, i) => (
                   <div key={i} style={{ textAlign: 'center', padding: '12px 6px', borderRadius: '8px', background: '#f8fafc', border: '1px solid #e2e8f0' }}>
                     <div style={{ fontSize: '20px', marginBottom: '3px' }}>{ind.icon}</div>
@@ -521,7 +522,7 @@ export default function CatalogPage() {
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', gap: '8px', padding: '10px', borderRadius: '8px', background: '#f0f7ff', border: '1px solid #e0efff' }}>
                     <div style={{ width: '24px', height: '24px', borderRadius: '6px', background: 'linear-gradient(135deg, #005BAC, #00A86B)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
                     </div>
                     <div>
                       <div style={{ fontWeight: '700', fontSize: '12px', color: '#0A1929', marginBottom: '2px' }}>{item.title}</div>
@@ -538,7 +539,7 @@ export default function CatalogPage() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr', gap: '6px', height: '80px' }}>
                 {[
                   '/images/products/pp-packing-bags.png',
-                  '/images/products/pp-treatment-roll.png',
+                  '/images/products/pp-treatment-roll.jpg',
                   '/images/products/ld-packing-bags.png',
                   '/images/flower/pp-gerbera-cover.png',
                   '/images/flower/pp-gypso-orchid-sleeves.png',
@@ -590,8 +591,8 @@ export default function CatalogPage() {
               <div style={{ background: '#00A86B', padding: '12px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ color: 'white', fontWeight: '700', fontSize: '13px' }}>Ready to get started? Contact us today!</div>
                 <div style={{ display: 'flex', gap: '6px' }}>
-                  <div style={{ padding: '4px 12px', borderRadius: '4px', background: 'rgba(255,255,255,0.2)', color: 'white', fontSize: '10px', fontWeight: '600' }}>Mon – Sat</div>
-                  <div style={{ padding: '4px 12px', borderRadius: '4px', background: 'rgba(255,255,255,0.2)', color: 'white', fontSize: '10px', fontWeight: '600' }}>9 AM – 6 PM</div>
+                  <div style={{ padding: '4px 12px', borderRadius: '4px', background: 'rgba(255,255,255,0.2)', color: 'white', fontSize: '10px', fontWeight: '600' }}>Wed – Mon</div>
+                  <div style={{ padding: '4px 12px', borderRadius: '4px', background: 'rgba(255,255,255,0.2)', color: 'white', fontSize: '10px', fontWeight: '600' }}>8 AM – 8 PM</div>
                 </div>
               </div>
             </div>

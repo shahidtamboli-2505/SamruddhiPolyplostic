@@ -120,6 +120,7 @@ const INDUSTRIES = [
   { icon: Plane, name: 'Export Packaging', desc: 'Sturdy sleeves & liners for global logistics.' },
   { icon: Pill, name: 'Pharmaceutical', desc: 'Clean-grade films for secondary packaging.' },
   { icon: Car, name: 'Automotive Parts', desc: 'Protective covers for component packaging.' },
+  { icon: Zap, name: 'Electronics & Telecommunication', desc: 'Protective casing films and equipment packaging.' },
 ];
 
 const PROCESS = [
@@ -149,7 +150,7 @@ const GALLERY = [
   '/images/machines/pp-extruder-55mm-hd.png',
   '/images/machines/cutting-machine-28-double-decker.png',
   '/images/products/pp-packing-bags.png',
-  '/images/products/pp-treatment-roll.png',
+  '/images/products/pp-treatment-roll.jpg',
   '/images/products/ld-packing-bags.png',
   '/images/flower/pp-gerbera-cover.png',
   '/images/flower/pp-gypso-orchid-sleeves.png',
@@ -267,11 +268,11 @@ function Navbar() {
           <button className={`w-10 h-10 rounded-full grid place-items-center transition-all ${scrolled ? 'hover:bg-slate-100 text-slate-700' : 'hover:bg-white/10 text-white'}`}>
             <Search className="w-4 h-4" />
           </button>
-          <a href="#contact">
-            <Button className="rounded-full bg-gradient-brand hover:opacity-90 h-11 px-6 font-semibold text-white shadow-lg shadow-[#005BAC]/25">
+          <Button asChild className="rounded-full bg-gradient-brand hover:opacity-90 h-11 px-6 font-semibold text-white shadow-lg shadow-[#005BAC]/25">
+            <a href="#contact">
               Get a Quote <ArrowRight className="w-4 h-4 ml-1" />
-            </Button>
-          </a>
+            </a>
+          </Button>
         </div>
         <button onClick={() => setOpen(!open)} className={`lg:hidden w-10 h-10 grid place-items-center rounded-full ${scrolled ? 'bg-slate-100 text-slate-800' : 'bg-white/15 text-white'}`}>
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -290,9 +291,9 @@ function Navbar() {
                   <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-3 px-3 rounded-lg text-slate-700 hover:bg-slate-100 font-medium">{l.label}</a>
                 );
               })}
-              <a href="#contact" onClick={() => setOpen(false)}>
-                <Button className="w-full mt-2 rounded-full bg-gradient-brand text-white h-11">Get a Quote</Button>
-              </a>
+              <Button asChild className="w-full mt-2 rounded-full bg-gradient-brand text-white h-11">
+                <a href="#contact" onClick={() => setOpen(false)}>Get a Quote</a>
+              </Button>
             </div>
           </motion.div>
         )}
@@ -323,6 +324,11 @@ function Hero() {
                 initial={{ scale: 1.15 }} animate={{ scale: idx === i ? 1 : 1.15 }} transition={{ duration: 8, ease: 'linear' }} />
               <div className="absolute inset-0 bg-gradient-to-br from-[#0A1929]/85 via-[#003F7A]/70 to-[#0A1929]/85 pointer-events-none"></div>
               <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
+              <div className="absolute inset-0 flex items-end justify-center pb-20 md:pb-24 pointer-events-none overflow-hidden select-none">
+                <div className="font-display text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold uppercase tracking-wider drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)] text-center w-full px-5">
+                  &quot;Reliable Packaging For Every Industry&quot;
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -341,19 +347,19 @@ function Hero() {
             </h1>
             <p className="mt-6 text-white/80 text-lg md:text-xl max-w-2xl leading-relaxed">{HERO_SLIDES[idx].desc}</p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <a href="#products">
-                <Button className="h-14 px-8 rounded-full bg-white text-[#005BAC] hover:bg-white/90 font-semibold text-base shadow-2xl group">
+              <Button asChild className="h-14 px-8 rounded-full bg-white text-[#005BAC] hover:bg-white/90 font-semibold text-base shadow-2xl group">
+                <a href="#products">
                   Explore Products <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition" />
-                </Button>
-              </a>
-              <Link href="/catalog">
-                <Button variant="outline" className="h-14 px-8 rounded-full bg-transparent border-[#00A86B]/60 text-white hover:bg-[#00A86B]/15 hover:text-white font-semibold text-base backdrop-blur group">
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="h-14 px-8 rounded-full bg-transparent border-[#00A86B]/60 text-white hover:bg-[#00A86B]/15 hover:text-white font-semibold text-base backdrop-blur group">
+                <Link href="/catalog">
                   <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" /> Download Catalog
-                </Button>
-              </Link>
-              <a href="#contact">
-                <Button variant="outline" className="h-14 px-8 rounded-full bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white font-semibold text-base backdrop-blur">Request a Quote</Button>
-              </a>
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="h-14 px-8 rounded-full bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white font-semibold text-base backdrop-blur">
+                <a href="#contact">Request a Quote</a>
+              </Button>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -537,10 +543,12 @@ function Products() {
                   </div>
                 </div>
                 <div className="flex gap-2">
-                  <Link href={`/products/${p.id}`} className="flex-1">
-                    <Button variant="outline" className="w-full rounded-full border-slate-300 text-slate-700 hover:bg-slate-50">Read More</Button>
-                  </Link>
-                  <a href="#contact" className="flex-1"><Button className="w-full rounded-full bg-gradient-brand text-white">Inquire</Button></a>
+                  <Button asChild variant="outline" className="flex-1 rounded-full border-slate-300 text-slate-700 hover:bg-slate-50">
+                    <Link href={`/products/${p.id}`}>Read More</Link>
+                  </Button>
+                  <Button asChild className="flex-1 rounded-full bg-gradient-brand text-white">
+                    <a href="#contact">Inquire</a>
+                  </Button>
                 </div>
               </div>
             </motion.div>
@@ -575,10 +583,9 @@ function Machinery() {
                   <div className="flex gap-3"><div className="text-white/50 uppercase tracking-widest text-xs w-24 shrink-0 pt-0.5">Products</div><div className="text-white/90 font-medium">{m.products}</div></div>
                   <div className="flex gap-3"><div className="text-white/50 uppercase tracking-widest text-xs w-24 shrink-0 pt-0.5">Size Range</div><div className="text-white/90 font-medium">{m.size}</div></div>
                 </div>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-2">
                   {m.advantages.map(a => <span key={a} className="text-xs px-3 py-1 rounded-full bg-white/10 text-white/80 border border-white/10">{a}</span>)}
                 </div>
-                <a href="#contact"><Button variant="outline" className="rounded-full bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white">Request Machine Details <ArrowRight className="w-4 h-4 ml-1" /></Button></a>
               </div>
             </motion.div>
           ))}
@@ -663,7 +670,7 @@ function FlowerSection() {
               <img src="/images/flower/pp-gerbera-cover.png" alt="PP Gerbera Cover" className="rounded-2xl h-72 w-full object-cover premium-shadow mt-8" />
               <img src="/images/flower/pp-gypso-orchid-sleeves.png" alt="PP Gypsophila / Orchid Sleeves" className="rounded-2xl h-72 w-full object-cover premium-shadow" />
               <img src="/images/flower/pp-chrysanthemum-sleeves.png" alt="PP Chrysanthemum Sleeves" className="rounded-2xl h-72 w-full object-cover premium-shadow" />
-              <img src="/images/products/pp-treatment-roll.png" alt="PP Treatment Roll" className="rounded-2xl h-72 w-full object-cover premium-shadow mt-[-40px]" />
+              <img src="/images/products/pp-treatment-roll.jpg" alt="PP Treatment Roll" className="rounded-2xl h-72 w-full object-cover premium-shadow mt-[-40px]" />
             </div>
             <div className="absolute -bottom-4 left-6 bg-[#0A1929] text-white rounded-2xl px-6 py-4 premium-shadow">
               <div className="font-display font-bold text-2xl">Export Grade</div>
@@ -792,7 +799,7 @@ function VideoSection() {
             </>
           ) : (
             <iframe
-              src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1`}
+              src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}`}
               title="Samruddhi Polyplast"
               className="w-full h-[480px] md:h-[600px]"
               allow="autoplay; encrypted-media"
@@ -954,7 +961,7 @@ function Contact() {
                   { icon: Mail, label: 'Email', value: <a href="mailto:sales@samruddhipolyplast.com" className="font-medium hover:text-[#7FFFB8]">sales@samruddhipolyplast.com</a> },
                   { icon: Phone, label: 'Phone / Customer Care', value: <a href="tel:+919529623383" className="font-medium hover:text-[#7FFFB8]">+91 95296 23383</a> },
                   { icon: MapPin, label: 'Factory Address', value: <span className="font-medium">A/T: Yelur, Pune–Bangalore Highway,<br/>Near Hotel Sai International,<br/>Taluka: Walwa, District: Sangli,<br/>Maharashtra – 415 411, India</span> },
-                  { icon: Clock, label: 'Working Hours', value: <span className="font-medium">Mon – Sat · 9:00 AM – 6:00 PM</span> },
+                  { icon: Clock, label: 'Working Hours', value: <span className="font-medium">Wed – Mon · 8:00 AM – 8:00 PM</span> },
                 ].map((it, k) => (
                   <div key={k} className="flex gap-4">
                     <div className="w-11 h-11 rounded-xl bg-white/10 grid place-items-center shrink-0"><it.icon className="w-5 h-5 text-[#7FFFB8]" /></div>
@@ -1059,7 +1066,7 @@ function Footer() {
               <li className="flex gap-2.5"><Mail className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="mailto:sales@samruddhipolyplast.com" className="hover:text-white">sales@samruddhipolyplast.com</a></li>
               <li className="flex gap-2.5"><Phone className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" /><a href="tel:+919529623383" className="hover:text-white">+91 95296 23383</a></li>
               <li className="flex gap-2.5"><MapPin className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />A/T: Yelur, Pune–Bangalore Highway, Near Hotel Sai International, Taluka: Walwa, District: Sangli, Maharashtra – 415 411, India</li>
-              <li className="flex gap-2.5"><Clock className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />Mon – Sat · 9 AM – 6 PM</li>
+              <li className="flex gap-2.5"><Clock className="w-4 h-4 shrink-0 mt-0.5 text-[#7FFFB8]" />Wed – Mon · 8 AM – 8 PM</li>
             </ul>
           </div>
         </div>
@@ -1146,7 +1153,6 @@ function Certifications() {
   const docs = [
     { name: 'GST Registration (REG-06)', desc: 'Official GST Allotment', file: 'GST-Registration-Certificate.pdf' },
     { name: 'MSME Udyam Certificate', desc: 'Government of India MSME', file: 'MSME-Udyam-Certificate.pdf' },
-    { name: 'MSME Udyam Annexure', desc: 'Detailed Enterprise Report', file: 'MSME-Udyam-Annexure.pdf' },
     { name: 'IEC Certificate', desc: 'Importer Exporter Code (DGFT)', file: 'IEC-Certificate.pdf' },
   ];
 
@@ -1157,7 +1163,7 @@ function Certifications() {
         
         
         {/* Official PDF Downloads */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {docs.map((doc, i) => (
             <motion.a 
               key={i} 
