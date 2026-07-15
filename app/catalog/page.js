@@ -18,7 +18,7 @@ const DEPARTMENTS = [
     desc: 'Operates modern extrusion lines (45mm & 55mm PP extruders, LD tubing machine) and 28" double-decker cutting machine.',
     responsibilities: ['Extrusion line operation', 'Film quality control', 'Production scheduling', 'Machine maintenance'],
     capacity: '2 Tons/Day',
-    team: '4 Operators',
+
   },
   {
     name: 'Quality Assurance',
@@ -28,7 +28,7 @@ const DEPARTMENTS = [
     desc: 'Rigorous quality inspection — dimensional accuracy, seal strength, clarity, thickness uniformity and finish quality.',
     responsibilities: ['Raw material inspection', 'In-process quality checks', 'Dimensional verification', 'Final product inspection'],
     capacity: '100% Inspection',
-    team: '2 Inspectors',
+
   },
   {
     name: 'Sales & Customer Relations',
@@ -38,7 +38,7 @@ const DEPARTMENTS = [
     desc: 'Works closely with customers for custom size specifications, printing needs and order tailoring for domestic & export.',
     responsibilities: ['Customer requirement analysis', 'Custom order specs', 'Quotation management', 'After-sales support'],
     capacity: 'Pan-India + Export',
-    team: '2 Executives',
+
   },
   {
     name: 'Logistics & Dispatch',
@@ -48,7 +48,7 @@ const DEPARTMENTS = [
     desc: 'On-time delivery of every order — products neatly rolled, labelled and palletised for domestic & export shipment.',
     responsibilities: ['Order packing & labelling', 'Transporter coordination', 'Delivery tracking', 'Export documentation'],
     capacity: 'Domestic & Export',
-    team: '2 Staff',
+
   },
 ];
 
@@ -447,10 +447,6 @@ export default function CatalogPage() {
                       <div style={{ flex: 1, padding: '5px 6px', borderRadius: '6px', background: `${dept.color}08`, textAlign: 'center' }}>
                         <div style={{ fontSize: '11px', fontWeight: '800', color: dept.color }}>{dept.capacity}</div>
                         <div style={{ fontSize: '7px', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px' }}>Capacity</div>
-                      </div>
-                      <div style={{ flex: 1, padding: '5px 6px', borderRadius: '6px', background: `${dept.color}08`, textAlign: 'center' }}>
-                        <div style={{ fontSize: '11px', fontWeight: '800', color: dept.color }}>{dept.team}</div>
-                        <div style={{ fontSize: '7px', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px' }}>Team Size</div>
                       </div>
                     </div>
                   </div>
